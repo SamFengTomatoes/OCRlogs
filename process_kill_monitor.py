@@ -30,7 +30,9 @@ import ctypes.util
 import json
 import os
 import re
+import select
 import signal
+import socket
 import struct
 import subprocess
 import sys
@@ -301,6 +303,182 @@ class KmsgMonitor:
             log(f"kmsg 监听异常: {e}", "ERROR")
 
 
+# ─── ProcEvent 监控 (NETLINK_CONNECTOR) ───────────────────────────────────
+# 通过 Linux 内核 connector 捕获进程退出事件，可获取精确退出码和杀死信号。
+# 适用于任意进程（不限于子进程），需要 CAP_NET_ADMIN 权限。
+
+NETLINK_CONNECTOR = 11
+CN_IDX_PROC = 0x1
+CN_VAL_PROC = 0x1
+PROC_CN_MCAST_LISTEN = 1
+PROC_EVENT_FORK = 0x00000001
+PROC_EVENT_EXEC = 0x00000002
+PROC_EVENT_EXIT = 0x80000000
+NLMSG_DONE = 0x3
+
+
+class ProcEventMonitor:
+    """
+    使用 NETLINK_CONNECTOR 捕获进程退出事件。
+
+    优势:
+      - 可捕获同一 PID namespace 中任意进程的退出信号（不限于子进程）
+      - 退出码中编码了杀死进程的信号编号（SIGKILL=9, SIGSEGV=11, ...）
+      - 实时推送，无需轮询
+
+    限制:
+      - 需要 CAP_NET_ADMIN 权限（k8s 中需 securityContext.capabilities.add: ["NET_ADMIN"]）
+      - 不需要 privileged 容器，只需 NET_ADMIN capability
+    """
+
+    def __init__(self):
+        self.enabled = False
+        self.sock = None
+        self.exit_events: dict = {}   # {pid: {exit_code, signal_num, signal_name, ...}}
+        self._lock = threading.Lock()
+        self._init_socket()
+
+    def _init_socket(self):
+        try:
+            self.sock = socket.socket(
+                socket.AF_NETLINK,
+                socket.SOCK_DGRAM,
+                NETLINK_CONNECTOR,
+            )
+            self.sock.bind((0, 0))
+
+            # 发送订阅消息
+            op_data = struct.pack("=I", PROC_CN_MCAST_LISTEN)
+            cn_msg = struct.pack(
+                "=IIIIHH",
+                CN_IDX_PROC, CN_VAL_PROC,
+                0, 0, len(op_data), 0,
+            ) + op_data
+            nl_msg = struct.pack(
+                "=IHHII",
+                16 + len(cn_msg), NLMSG_DONE, 0, 0, 0,
+            ) + cn_msg
+            self.sock.send(nl_msg)
+
+            self.enabled = True
+            log("ProcEvent 监控已启用 (NETLINK_CONNECTOR)，可捕获任意进程精确退出信号")
+        except PermissionError:
+            log("ProcEvent 监控不可用: 需要 CAP_NET_ADMIN 权限。"
+                " k8s 中可添加 securityContext.capabilities.add: [\"NET_ADMIN\"]", "WARN")
+        except Exception as e:
+            log(f"ProcEvent 监控初始化失败: {e}", "WARN")
+        finally:
+            if not self.enabled and self.sock:
+                self.sock.close()
+                self.sock = None
+
+    def monitor_loop(self, stop_event: threading.Event):
+        if not self.enabled or self.sock is None:
+            return
+
+        log("ProcEvent 监听线程启动")
+        while not stop_event.is_set():
+            try:
+                readable, _, _ = select.select([self.sock], [], [], 1.0)
+                if not readable:
+                    continue
+
+                data = self.sock.recv(8192)
+                self._parse_messages(data)
+            except Exception as e:
+                if not stop_event.is_set():
+                    log(f"ProcEvent 监听异常: {e}", "ERROR")
+                    time.sleep(1)
+
+    def _parse_messages(self, data: bytes):
+        offset = 0
+        while offset + 16 <= len(data):
+            nlmsg_len = struct.unpack_from("=I", data, offset)[0]
+            if nlmsg_len == 0 or offset + nlmsg_len > len(data):
+                break
+
+            # cn_msg 在 nlmsghdr 之后 (16 bytes)
+            cn_offset = offset + 16
+            if cn_offset + 20 > len(data):
+                break
+            cn_len = struct.unpack_from("=H", data, cn_offset + 16)[0]
+
+            # proc_event 在 cn_msg 之后 (20 bytes)
+            pe_offset = cn_offset + 20
+            if pe_offset + 16 > len(data):
+                break
+
+            what, cpu, timestamp_ns = struct.unpack_from("=IIQ", data, pe_offset)
+
+            if what == PROC_EVENT_EXIT:
+                self._handle_exit_event(data, pe_offset)
+            elif what == PROC_EVENT_FORK:
+                self._handle_fork_event(data, pe_offset)
+
+            offset += nlmsg_len
+
+    def _handle_exit_event(self, data: bytes, pe_offset: int):
+        exit_offset = pe_offset + 16
+        if exit_offset + 16 > len(data):
+            return
+
+        process_pid, process_tgid, exit_code, exit_signal = \
+            struct.unpack_from("=iiII", data, exit_offset)
+
+        # 从 exit_code 中解析信号
+        # exit_code 编码: 被信号杀死时低7位为信号号；正常退出时 (code>>8)&0xff 为退出码
+        signal_num = exit_code & 0x7f
+        core_dumped = bool(exit_code & 0x80)
+        exit_status = (exit_code >> 8) & 0xff
+
+        signal_name = None
+        if signal_num:
+            signal_name = SIGNAL_NAMES.get(signal_num, f"SIG{signal_num}")
+
+        event = {
+            "pid": process_tgid,
+            "thread_pid": process_pid,
+            "exit_code_raw": exit_code,
+            "signal_num": signal_num if signal_num else None,
+            "signal_name": signal_name,
+            "exit_status": exit_status if not signal_num else None,
+            "core_dumped": core_dumped,
+            "exit_signal_to_parent": exit_signal,
+            "timestamp": datetime.now().isoformat(),
+        }
+
+        with self._lock:
+            self.exit_events[process_tgid] = event
+
+        log_json(event, "PROC_EVENT_EXIT")
+
+        if signal_name:
+            log(f"!!! ProcEvent 捕获: PID={process_tgid} 被信号杀死 "
+                f"{signal_name}({signal_num}) core_dump={core_dumped}", "ALERT")
+        else:
+            log(f"ProcEvent 捕获: PID={process_tgid} 正常退出 code={exit_status}")
+
+    def _handle_fork_event(self, data: bytes, pe_offset: int):
+        fork_offset = pe_offset + 16
+        if fork_offset + 16 > len(data):
+            return
+        parent_pid, parent_tgid, child_pid, child_tgid = \
+            struct.unpack_from("=iiii", data, fork_offset)
+
+        log_json({
+            "parent_tgid": parent_tgid,
+            "child_tgid": child_tgid,
+        }, "PROC_EVENT_FORK")
+
+    def get_exit_event(self, pid: int) -> Optional[dict]:
+        with self._lock:
+            return self.exit_events.get(pid)
+
+    def cleanup(self, pid: int):
+        with self._lock:
+            self.exit_events.pop(pid, None)
+
+
 # ─── 进程信息采集 ──────────────────────────────────────────────────────────
 
 def read_proc_status(pid: int) -> dict:
@@ -491,6 +669,7 @@ class ProcessMonitor:
         self.dump_proc = dump_proc
         self.tracked: dict = {}           # {pid: last_snapshot}
         self.cg_monitor: Optional[CgroupMemoryMonitor] = None
+        self.proc_event_monitor: Optional[ProcEventMonitor] = None
         self._stop = threading.Event()
 
     def find_processes(self) -> dict:
@@ -565,6 +744,21 @@ class ProcessMonitor:
         comm = last_snap.get("comm", last_snap.get("Name", "unknown"))
         log(f"<< 进程消失: PID={pid} comm={comm}", "ALERT")
 
+        # 查找 ProcEvent 捕获的精确退出信号
+        proc_exit_event = None
+        if self.proc_event_monitor:
+            proc_exit_event = self.proc_event_monitor.get_exit_event(pid)
+            if proc_exit_event:
+                sig_name = proc_exit_event.get("signal_name")
+                sig_num = proc_exit_event.get("signal_num")
+                if sig_name:
+                    log(f"!!! ProcEvent 精确信号: PID={pid} 被杀死 "
+                        f"{sig_name}({sig_num}) "
+                        f"core_dump={proc_exit_event.get('core_dumped')}", "ALERT")
+                else:
+                    log(f"ProcEvent 精确退出码: PID={pid} "
+                        f"exit_code={proc_exit_event.get('exit_status')}")
+
         # 立即检查 cgroup OOM
         oom_delta = None
         if self.cg_monitor:
@@ -626,6 +820,7 @@ class ProcessMonitor:
                 "ShdPnd_parsed": last_snap.get("ShdPnd_parsed", []),
             },
             "cgroup_oom_delta": oom_delta,
+            "proc_event_exit": proc_exit_event,
             "system_meminfo": meminfo,
             "memory_pressure": pressure,
             "zombie_info": zombie_info,
@@ -652,13 +847,52 @@ class ProcessMonitor:
         reasons = []
         confidence = "LOW"
 
-        # 检查 cgroup OOM
+        # ── 最高优先级: ProcEvent 精确退出信号 ──
+        proc_ev = event.get("proc_event_exit")
+        if proc_ev and proc_ev.get("signal_name"):
+            sig_name = proc_ev["signal_name"]
+            sig_num = proc_ev["signal_num"]
+            core_dump = proc_ev.get("core_dumped", False)
+            reasons.append(f"PRECISE_SIGNAL: {sig_name}({sig_num})"
+                           + (" [core dumped]" if core_dump else ""))
+            confidence = "HIGH"
+
+            # 根据信号类型进一步推断原因
+            if sig_name == "SIGKILL":
+                # SIGKILL 需要进一步区分 OOM vs 外部杀
+                oom_delta = event.get("cgroup_oom_delta")
+                if oom_delta and oom_delta.get("oom_kill_delta", 0) > 0:
+                    reasons.append("  -> SIGKILL 原因: CGROUP_OOM_KILL")
+                else:
+                    dmesg_tail = event.get("dmesg_tail", [])
+                    has_dmesg_oom = any(
+                        "killed process" in l.lower() or "out of memory" in l.lower()
+                        for l in dmesg_tail
+                    )
+                    if has_dmesg_oom:
+                        reasons.append("  -> SIGKILL 原因: SYSTEM_OOM_KILLER")
+                    else:
+                        reasons.append("  -> SIGKILL 原因: 外部SIGKILL (k8s eviction / 应用kill / 系统OOM)")
+            elif sig_name == "SIGSEGV":
+                reasons.append("  -> SIGSEGV 原因: 原生代码段错误 (ZMQ/msgspec/库冲突)")
+            elif sig_name == "SIGABRT":
+                reasons.append("  -> SIGABRT 原因: abort() (NCCL/C++断言/std::terminate)")
+            elif sig_name == "SIGTERM":
+                reasons.append("  -> SIGTERM 原因: 外部优雅终止请求")
+            elif sig_name == "SIGBUS":
+                reasons.append("  -> SIGBUS 原因: 内存映射错误/硬件故障")
+        elif proc_ev and proc_ev.get("exit_status") is not None:
+            reasons.append(f"NORMAL_EXIT: code={proc_ev['exit_status']}")
+            confidence = "HIGH"
+
+        # ── 检查 cgroup OOM ──
         oom_delta = event.get("cgroup_oom_delta")
         if oom_delta and oom_delta.get("oom_kill_delta", 0) > 0:
             reasons.append("CGROUP_OOM_KILL")
-            confidence = "HIGH"
+            if confidence == "LOW":
+                confidence = "HIGH"
 
-        # 检查系统内存
+        # ── 检查系统内存 ──
         meminfo = event.get("system_meminfo", {})
         mem_available_str = meminfo.get("MemAvailable", "0")
         try:
@@ -670,31 +904,36 @@ class ProcessMonitor:
             if confidence == "LOW":
                 confidence = "MEDIUM"
 
-        # 检查最后的信号
+        # ── 检查最后的待处理信号 ──
         last_state = event.get("last_known_state", {})
         sig_pnd = last_state.get("SigPnd_parsed", [])
         shd_pnd = last_state.get("ShdPnd_parsed", [])
         if sig_pnd or shd_pnd:
             reasons.append(f"PENDING_SIGNALS: sig={sig_pnd}, shd={shd_pnd}")
 
-        # 检查 oom_score
+        # ── 检查 oom_score ──
         oom_score = last_state.get("oom_score")
         if oom_score is not None and oom_score > 500:
             reasons.append(f"HIGH_OOM_SCORE: {oom_score}")
-            if "SYSTEM_MEMORY_NEAR_EXHAUSTION" in reasons:
-                confidence = "MEDIUM"
+            if "SYSTEM_MEMORY_NEAR_EXHAUSTION" in [r.split(":")[0] if ":" in r else r for r in reasons]:
+                if confidence == "LOW":
+                    confidence = "MEDIUM"
 
-        # 检查 dmesg
+        # ── 检查 dmesg ──
         dmesg_tail = event.get("dmesg_tail", [])
         for line in dmesg_tail:
             line_lower = line.lower()
             if "killed process" in line_lower or "out of memory" in line_lower:
-                reasons.append(f"DMESG_OOM: {line.strip()[:200]}")
-                confidence = "HIGH"
+                if "DMESG_OOM" not in str(reasons):
+                    reasons.append(f"DMESG_OOM: {line.strip()[:200]}")
+                if confidence == "LOW":
+                    confidence = "HIGH"
                 break
             if "segfault" in line_lower:
-                reasons.append(f"DMESG_SEGFAULT: {line.strip()[:200]}")
-                confidence = "HIGH"
+                if "DMESG_SEGFAULT" not in str(reasons):
+                    reasons.append(f"DMESG_SEGFAULT: {line.strip()[:200]}")
+                if confidence == "LOW":
+                    confidence = "HIGH"
                 break
 
         if not reasons:
@@ -703,7 +942,7 @@ class ProcessMonitor:
         return {
             "reasons": reasons,
             "confidence": confidence,
-            "note": "若需精确退出码，请使用 --exec 模式启动目标进程",
+            "note": "若 ProcEvent 不可用且需精确退出码，请使用 --exec 模式启动目标进程",
         }
 
     def stop(self):
@@ -714,7 +953,8 @@ class ProcessMonitor:
 
 def run_wrapper(command: str, cg_monitor: CgroupMemoryMonitor,
                 sys_mem_monitor: SystemMemoryMonitor,
-                dump_proc: bool = False):
+                dump_proc: bool = False,
+                proc_event_monitor: Optional[ProcEventMonitor] = None):
     """
     以子进程方式启动目标命令，可获取精确退出码和信号。
     同时监控所有子进程。
@@ -741,6 +981,13 @@ def run_wrapper(command: str, cg_monitor: CgroupMemoryMonitor,
                          args=(stop_event,), daemon=True)
     t.start()
     threads.append(t)
+
+    # 启动 ProcEvent 监控线程
+    if proc_event_monitor and proc_event_monitor.enabled:
+        t = threading.Thread(target=proc_event_monitor.monitor_loop,
+                             args=(stop_event,), daemon=True)
+        t.start()
+        threads.append(t)
 
     # 启动目标进程
     import shlex
@@ -918,10 +1165,13 @@ def main():
     # 初始化 kmsg 监控
     kmsg_monitor = KmsgMonitor()
 
+    # 初始化 ProcEvent 监控（精确退出信号捕获）
+    proc_event_monitor = ProcEventMonitor()
+
     # ── Wrapper 模式 ──
     if args.exec:
         exit_code = run_wrapper(args.exec, cg_monitor, sys_mem_monitor,
-                                args.dump_proc)
+                                args.dump_proc, proc_event_monitor)
         sys.exit(exit_code)
 
     # ── 监控模式 ──
@@ -943,6 +1193,12 @@ def main():
                          args=(stop_event, 5.0), daemon=True)
     t.start()
 
+    # 启动 ProcEvent 监控线程（精确退出信号）
+    if proc_event_monitor.enabled:
+        t = threading.Thread(target=proc_event_monitor.monitor_loop,
+                             args=(stop_event,), daemon=True)
+        t.start()
+
     # 启动进程监控
     pids = None
     if args.pids:
@@ -955,6 +1211,7 @@ def main():
         dump_proc=args.dump_proc,
     )
     proc_monitor.cg_monitor = cg_monitor
+    proc_monitor.proc_event_monitor = proc_event_monitor
 
     def signal_handler(signum, frame):
         log(f"监控脚本收到信号 {SIGNAL_NAMES.get(signum, signum)}，正在停止...")
