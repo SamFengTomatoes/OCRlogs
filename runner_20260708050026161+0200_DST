@@ -1,0 +1,611 @@
+2026-07-08 04:04:13.146 2665293827368806127 2691283114149584021 INFO 63 140287595009856 MainThread NAIE chat_service.py run 31 Start to verify request body, future_id=1783476253.1451375_1302
+2026-07-08 04:04:13.148 2665293827368806127 2691283114149584021 INFO 63 140287595009856 MainThread NAIE task_queue_local.py submit 26 Submit the task [1783476253.1451375_1302] to queue [default_queue] successful, submit time: [2026-07-08 04:04:13.148254], queue size: 1
+2026-07-08 04:04:13.148 2665293827368806127 2691283114149584021 INFO 63 140287595009856 MainThread NAIE task_queue_local.py poll 43 Poll the task [1783476253.1451375_1302] from queue [default_queue] successful, queue size: 0
+2026-07-08 04:04:13.148 2665293827368806127 2691283114149584021 INFO 63 140287595009856 MainThread NAIE async_counter.py decrease 54 After decrease the current counter is: 3, future_id=1783476253.1451375_1302
+2026-07-08 04:04:13.189 1381659688650641067 3705631639376119390 INFO 63 140287595009856 MainThread NAIE chat_service.py run 31 Start to verify request body, future_id=1783476253.1885877_1925
+2026-07-08 04:04:13.191 1381659688650641067 3705631639376119390 INFO 63 140287595009856 MainThread NAIE task_queue_local.py submit 26 Submit the task [1783476253.1885877_1925] to queue [default_queue] successful, submit time: [2026-07-08 04:04:13.191768], queue size: 1
+2026-07-08 04:04:13.192 1381659688650641067 3705631639376119390 INFO 63 140287595009856 MainThread NAIE task_queue_local.py poll 43 Poll the task [1783476253.1885877_1925] from queue [default_queue] successful, queue size: 0
+2026-07-08 04:04:13.192 1381659688650641067 3705631639376119390 INFO 63 140287595009856 MainThread NAIE async_counter.py decrease 54 After decrease the current counter is: 2, future_id=1783476253.1885877_1925
+2026-07-08 04:04:13.195 1904886040983849612 8657642890442328503 INFO 63 140287595009856 MainThread NAIE chat_service.py run 31 Start to verify request body, future_id=1783476253.1950717_2410
+2026-07-08 04:04:13.196 1904886040983849612 8657642890442328503 INFO 63 140287595009856 MainThread NAIE task_queue_local.py submit 26 Submit the task [1783476253.1950717_2410] to queue [default_queue] successful, submit time: [2026-07-08 04:04:13.196875], queue size: 1
+2026-07-08 04:04:13.197 1904886040983849612 8657642890442328503 INFO 63 140287595009856 MainThread NAIE task_queue_local.py poll 43 Poll the task [1783476253.1950717_2410] from queue [default_queue] successful, queue size: 0
+2026-07-08 04:04:13.197 1904886040983849612 8657642890442328503 INFO 63 140287595009856 MainThread NAIE async_counter.py decrease 54 After decrease the current counter is: 1, future_id=1783476253.1950717_2410
+2026-07-08 04:04:13.240 9078063807437505881 1096550517173119579 INFO 63 140287595009856 MainThread NAIE chat_service.py run 31 Start to verify request body, future_id=1783476253.2397945_6677
+2026-07-08 04:04:13.241 9078063807437505881 1096550517173119579 INFO 63 140287595009856 MainThread NAIE task_queue_local.py submit 26 Submit the task [1783476253.2397945_6677] to queue [default_queue] successful, submit time: [2026-07-08 04:04:13.241657], queue size: 1
+2026-07-08 04:04:13.241 9078063807437505881 1096550517173119579 INFO 63 140287595009856 MainThread NAIE task_queue_local.py poll 43 Poll the task [1783476253.2397945_6677] from queue [default_queue] successful, queue size: 0
+2026-07-08 04:04:13.242 9078063807437505881 1096550517173119579 INFO 63 140287595009856 MainThread NAIE async_counter.py decrease 54 After decrease the current counter is: 0, future_id=1783476253.2397945_6677
+2026-07-08 04:04:13.356 9078063807437505881 1096550517173119579 ERROR 63 140287595009856 MainThread NAIE text_generator.py predict 363 future_id: 1783476253.1451375_1302 - predict error: Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/lib/site-packages/netrsn/core/lm_connector/generator/text_generator.py", line 356, in predict
+    async for result in streaming_generator:
+  File "/opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/lib/site-packages/netrsn/core/lm_connector/generator/text_generator.py", line 992, in __parse_response
+    raise Exception(f"{error}")
+Exception: {'message': 'EngineCore encountered an issue. See stack trace (above) for the root cause.', 'type': 'BadRequestError', 'param': None, 'code': 400}
+
+2026-07-08 04:04:13.357 9078063807437505881 1096550517173119579 ERROR 63 140287595009856 MainThread NAIE text_generator.py predict 363 future_id: 1783476253.1885877_1925 - predict error: Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/lib/site-packages/netrsn/core/lm_connector/generator/text_generator.py", line 356, in predict
+    async for result in streaming_generator:
+  File "/opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/lib/site-packages/netrsn/core/lm_connector/generator/text_generator.py", line 992, in __parse_response
+    raise Exception(f"{error}")
+Exception: {'message': 'EngineCore encountered an issue. See stack trace (above) for the root cause.', 'type': 'BadRequestError', 'param': None, 'code': 400}
+
+2026-07-08 04:04:13.358 9078063807437505881 1096550517173119579 ERROR 63 140287595009856 MainThread NAIE text_generator.py predict 363 future_id: 1783476253.1950717_2410 - predict error: Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/lib/site-packages/netrsn/core/lm_connector/generator/text_generator.py", line 356, in predict
+    async for result in streaming_generator:
+  File "/opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/lib/site-packages/netrsn/core/lm_connector/generator/text_generator.py", line 992, in __parse_response
+    raise Exception(f"{error}")
+Exception: {'message': 'EngineCore encountered an issue. See stack trace (above) for the root cause.', 'type': 'BadRequestError', 'param': None, 'code': 400}
+
+2026-07-08 04:04:13.359 9078063807437505881 1096550517173119579 ERROR 63 140287595009856 MainThread NAIE text_generator.py predict 363 future_id: 1783476253.2397945_6677 - predict error: Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/lib/site-packages/netrsn/core/lm_connector/generator/text_generator.py", line 356, in predict
+    async for result in streaming_generator:
+  File "/opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/lib/site-packages/netrsn/core/lm_connector/generator/text_generator.py", line 992, in __parse_response
+    raise Exception(f"{error}")
+Exception: {'message': 'EngineCore encountered an issue. See stack trace (above) for the root cause.', 'type': 'BadRequestError', 'param': None, 'code': 400}
+
+2026-07-08 04:04:13.359 9078063807437505881 1096550517173119579 INFO 63 140287595009856 MainThread NAIE async_counter.py increase 36 After increase the current counter is: 1, future_id=1783476253.1451375_1302, reason: predict finish
+2026-07-08 04:04:13.360 9078063807437505881 1096550517173119579 INFO 63 140287595009856 MainThread NAIE chat_completions_controller.py on_finish 49 [1783476253.1451375_1302] chat finished, cost time: 0.2153174877166748
+2026-07-08 04:04:13.360 9078063807437505881 1096550517173119579 INFO 63 140287595009856 MainThread NAIE async_counter.py increase 36 After increase the current counter is: 2, future_id=1783476253.1885877_1925, reason: predict finish
+2026-07-08 04:04:13.360 9078063807437505881 1096550517173119579 INFO 63 140287595009856 MainThread NAIE chat_completions_controller.py on_finish 49 [1783476253.1885877_1925] chat finished, cost time: 0.17234301567077637
+2026-07-08 04:04:13.361 9078063807437505881 1096550517173119579 INFO 63 140287595009856 MainThread NAIE async_counter.py increase 36 After increase the current counter is: 3, future_id=1783476253.1950717_2410, reason: predict finish
+2026-07-08 04:04:13.361 9078063807437505881 1096550517173119579 ERROR 63 140287595009856 MainThread NAIE chat_base_future.py check 90 [1783476253.1950717_2410] Internet server error.
+2026-07-08 04:04:13.361 +0200 - 63 - 140287595009856 - tornado.application - ERROR - web.py[line:1966] - log_exception - Uncaught exception POST /rest/netrsn/v1/netrsn-paddleocrsmall/chat/completions (0.0.0.0)
+HTTPServerRequest(protocol='http', host='10.68.176.120:32018', method='POST', uri='/rest/netrsn/v1/netrsn-paddleocrsmall/chat/completions', version='HTTP/1.1', remote_ip='0.0.0.0')
+Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpython3rd@27.10.3472/lib/site-packages/tornado/web.py", line 1880, in _execute
+    result = await result
+             ^^^^^^^^^^^^
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 58, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 56, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 80, in do_predict
+  File "/usr1/build/core/module/access/service/chat_service.py", line 95, in stream_response
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 165, in generate
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 91, in check
+naie.infrasdk.impl.exception.naie_exception.NaieException: infers.6009, Internet server error!
+2026-07-08 04:04:13.362 9078063807437505881 1096550517173119579 ERROR 63 140287595009856 MainThread NAIE base_handler.py write_error 67 <class 'naie.infrasdk.impl.exception.naie_exception.NaieException'> : infers.6009, Internet server error!
+Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpython3rd@27.10.3472/lib/site-packages/tornado/web.py", line 1880, in _execute
+    result = await result
+             ^^^^^^^^^^^^
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 58, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 56, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 80, in do_predict
+  File "/usr1/build/core/module/access/service/chat_service.py", line 95, in stream_response
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 165, in generate
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 91, in check
+naie.infrasdk.impl.exception.naie_exception.NaieException: infers.6009, Internet server error!
+2026-07-08 04:04:13.362 9078063807437505881 1096550517173119579 INFO 63 140287595009856 MainThread NAIE chat_completions_controller.py on_finish 49 [1783476253.1950717_2410] chat finished, cost time: 0.1677544116973877
+2026-07-08 04:04:13.363 9078063807437505881 1096550517173119579 INFO 63 140287595009856 MainThread NAIE async_counter.py increase 36 After increase the current counter is: 4, future_id=1783476253.2397945_6677, reason: predict finish
+2026-07-08 04:04:13.363 9078063807437505881 1096550517173119579 ERROR 63 140287595009856 MainThread NAIE chat_base_future.py check 90 [1783476253.2397945_6677] Internet server error.
+2026-07-08 04:04:13.363 +0200 - 63 - 140287595009856 - tornado.application - ERROR - web.py[line:1966] - log_exception - Uncaught exception POST /rest/netrsn/v1/netrsn-paddleocrsmall/chat/completions (0.0.0.0)
+HTTPServerRequest(protocol='http', host='10.68.176.120:32018', method='POST', uri='/rest/netrsn/v1/netrsn-paddleocrsmall/chat/completions', version='HTTP/1.1', remote_ip='0.0.0.0')
+Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpython3rd@27.10.3472/lib/site-packages/tornado/web.py", line 1880, in _execute
+    result = await result
+             ^^^^^^^^^^^^
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 58, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 56, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 80, in do_predict
+  File "/usr1/build/core/module/access/service/chat_service.py", line 95, in stream_response
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 165, in generate
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 91, in check
+naie.infrasdk.impl.exception.naie_exception.NaieException: infers.6009, Internet server error!
+2026-07-08 04:04:13.363 9078063807437505881 1096550517173119579 ERROR 63 140287595009856 MainThread NAIE base_handler.py write_error 67 <class 'naie.infrasdk.impl.exception.naie_exception.NaieException'> : infers.6009, Internet server error!
+Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpython3rd@27.10.3472/lib/site-packages/tornado/web.py", line 1880, in _execute
+    result = await result
+             ^^^^^^^^^^^^
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 58, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 56, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 80, in do_predict
+  File "/usr1/build/core/module/access/service/chat_service.py", line 95, in stream_response
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 165, in generate
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 91, in check
+naie.infrasdk.impl.exception.naie_exception.NaieException: infers.6009, Internet server error!
+2026-07-08 04:04:13.364 9078063807437505881 1096550517173119579 INFO 63 140287595009856 MainThread NAIE chat_completions_controller.py on_finish 49 [1783476253.2397945_6677] chat finished, cost time: 0.12459182739257812
+2026-07-08 04:04:13.470 2919537311613122809 8692319270476741662 INFO 63 140287595009856 MainThread NAIE chat_service.py run 31 Start to verify request body, future_id=1783476253.4700425_5882
+2026-07-08 04:04:13.472 2919537311613122809 8692319270476741662 INFO 63 140287595009856 MainThread NAIE task_queue_local.py submit 26 Submit the task [1783476253.4700425_5882] to queue [default_queue] successful, submit time: [2026-07-08 04:04:13.472067], queue size: 1
+2026-07-08 04:04:13.472 2919537311613122809 8692319270476741662 INFO 63 140287595009856 MainThread NAIE task_queue_local.py poll 43 Poll the task [1783476253.4700425_5882] from queue [default_queue] successful, queue size: 0
+2026-07-08 04:04:13.472 2919537311613122809 8692319270476741662 INFO 63 140287595009856 MainThread NAIE async_counter.py decrease 54 After decrease the current counter is: 3, future_id=1783476253.4700425_5882
+2026-07-08 04:04:13.477 2919537311613122809 8692319270476741662 ERROR 63 140287595009856 MainThread NAIE text_generator.py predict 363 future_id: 1783476253.4700425_5882 - predict error: Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/lib/site-packages/netrsn/core/lm_connector/generator/text_generator.py", line 356, in predict
+    async for result in streaming_generator:
+  File "/opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/lib/site-packages/netrsn/core/lm_connector/generator/text_generator.py", line 992, in __parse_response
+    raise Exception(f"{error}")
+Exception: {'message': 'EngineCore encountered an issue. See stack trace (above) for the root cause.', 'type': 'BadRequestError', 'param': None, 'code': 400}
+
+2026-07-08 04:04:13.478 2919537311613122809 8692319270476741662 INFO 63 140287595009856 MainThread NAIE async_counter.py increase 36 After increase the current counter is: 4, future_id=1783476253.4700425_5882, reason: predict finish
+2026-07-08 04:04:13.478 2919537311613122809 8692319270476741662 ERROR 63 140287595009856 MainThread NAIE chat_base_future.py check 90 [1783476253.4700425_5882] Internet server error.
+2026-07-08 04:04:13.478 +0200 - 63 - 140287595009856 - tornado.application - ERROR - web.py[line:1966] - log_exception - Uncaught exception POST /rest/netrsn/v1/netrsn-paddleocrsmall/chat/completions (0.0.0.0)
+HTTPServerRequest(protocol='http', host='10.68.176.120:32018', method='POST', uri='/rest/netrsn/v1/netrsn-paddleocrsmall/chat/completions', version='HTTP/1.1', remote_ip='0.0.0.0')
+Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpython3rd@27.10.3472/lib/site-packages/tornado/web.py", line 1880, in _execute
+    result = await result
+             ^^^^^^^^^^^^
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 58, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 56, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 80, in do_predict
+  File "/usr1/build/core/module/access/service/chat_service.py", line 95, in stream_response
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 165, in generate
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 91, in check
+naie.infrasdk.impl.exception.naie_exception.NaieException: infers.6009, Internet server error!
+2026-07-08 04:04:13.479 2919537311613122809 8692319270476741662 ERROR 63 140287595009856 MainThread NAIE base_handler.py write_error 67 <class 'naie.infrasdk.impl.exception.naie_exception.NaieException'> : infers.6009, Internet server error!
+Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpython3rd@27.10.3472/lib/site-packages/tornado/web.py", line 1880, in _execute
+    result = await result
+             ^^^^^^^^^^^^
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 58, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 56, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 80, in do_predict
+  File "/usr1/build/core/module/access/service/chat_service.py", line 95, in stream_response
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 165, in generate
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 91, in check
+naie.infrasdk.impl.exception.naie_exception.NaieException: infers.6009, Internet server error!
+2026-07-08 04:04:13.479 2919537311613122809 8692319270476741662 INFO 63 140287595009856 MainThread NAIE chat_completions_controller.py on_finish 49 [1783476253.4700425_5882] chat finished, cost time: 0.009684085845947266
+2026-07-08 04:04:13.506 1665537607693667889 3550994603780852485 INFO 63 140287595009856 MainThread NAIE chat_service.py run 31 Start to verify request body, future_id=1783476253.5047402_2898
+2026-07-08 04:04:13.509 1665537607693667889 3550994603780852485 INFO 63 140287595009856 MainThread NAIE task_queue_local.py submit 26 Submit the task [1783476253.5047402_2898] to queue [default_queue] successful, submit time: [2026-07-08 04:04:13.509426], queue size: 1
+2026-07-08 04:04:13.509 1665537607693667889 3550994603780852485 INFO 63 140287595009856 MainThread NAIE task_queue_local.py poll 43 Poll the task [1783476253.5047402_2898] from queue [default_queue] successful, queue size: 0
+2026-07-08 04:04:13.509 1665537607693667889 3550994603780852485 INFO 63 140287595009856 MainThread NAIE async_counter.py decrease 54 After decrease the current counter is: 3, future_id=1783476253.5047402_2898
+2026-07-08 04:04:13.514 1665537607693667889 3550994603780852485 ERROR 63 140287595009856 MainThread NAIE text_generator.py predict 363 future_id: 1783476253.5047402_2898 - predict error: Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/lib/site-packages/netrsn/core/lm_connector/generator/text_generator.py", line 356, in predict
+    async for result in streaming_generator:
+  File "/opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/lib/site-packages/netrsn/core/lm_connector/generator/text_generator.py", line 992, in __parse_response
+    raise Exception(f"{error}")
+Exception: {'message': 'EngineCore encountered an issue. See stack trace (above) for the root cause.', 'type': 'BadRequestError', 'param': None, 'code': 400}
+
+2026-07-08 04:04:13.514 1665537607693667889 3550994603780852485 INFO 63 140287595009856 MainThread NAIE async_counter.py increase 36 After increase the current counter is: 4, future_id=1783476253.5047402_2898, reason: predict finish
+2026-07-08 04:04:13.514 1665537607693667889 3550994603780852485 ERROR 63 140287595009856 MainThread NAIE chat_base_future.py check 90 [1783476253.5047402_2898] Internet server error.
+2026-07-08 04:04:13.514 +0200 - 63 - 140287595009856 - tornado.application - ERROR - web.py[line:1966] - log_exception - Uncaught exception POST /rest/netrsn/v1/netrsn-paddleocrsmall/chat/completions (0.0.0.0)
+HTTPServerRequest(protocol='http', host='10.68.176.120:32018', method='POST', uri='/rest/netrsn/v1/netrsn-paddleocrsmall/chat/completions', version='HTTP/1.1', remote_ip='0.0.0.0')
+Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpython3rd@27.10.3472/lib/site-packages/tornado/web.py", line 1880, in _execute
+    result = await result
+             ^^^^^^^^^^^^
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 58, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 56, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 80, in do_predict
+  File "/usr1/build/core/module/access/service/chat_service.py", line 95, in stream_response
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 165, in generate
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 91, in check
+naie.infrasdk.impl.exception.naie_exception.NaieException: infers.6009, Internet server error!
+2026-07-08 04:04:13.515 1665537607693667889 3550994603780852485 ERROR 63 140287595009856 MainThread NAIE base_handler.py write_error 67 <class 'naie.infrasdk.impl.exception.naie_exception.NaieException'> : infers.6009, Internet server error!
+Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpython3rd@27.10.3472/lib/site-packages/tornado/web.py", line 1880, in _execute
+    result = await result
+             ^^^^^^^^^^^^
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 58, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 56, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 80, in do_predict
+  File "/usr1/build/core/module/access/service/chat_service.py", line 95, in stream_response
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 165, in generate
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 91, in check
+naie.infrasdk.impl.exception.naie_exception.NaieException: infers.6009, Internet server error!
+2026-07-08 04:04:13.515 1665537607693667889 3550994603780852485 INFO 63 140287595009856 MainThread NAIE chat_completions_controller.py on_finish 49 [1783476253.5047402_2898] chat finished, cost time: 0.011242866516113281
+2026-07-08 04:04:13.613 1510878382757560150 6536330926436874592 INFO 63 140287595009856 MainThread NAIE chat_service.py run 31 Start to verify request body, future_id=1783476253.612324_2129
+2026-07-08 04:04:13.614 1510878382757560150 6536330926436874592 INFO 63 140287595009856 MainThread NAIE task_queue_local.py submit 26 Submit the task [1783476253.612324_2129] to queue [default_queue] successful, submit time: [2026-07-08 04:04:13.614871], queue size: 1
+2026-07-08 04:04:13.615 1510878382757560150 6536330926436874592 INFO 63 140287595009856 MainThread NAIE task_queue_local.py poll 43 Poll the task [1783476253.612324_2129] from queue [default_queue] successful, queue size: 0
+2026-07-08 04:04:13.615 1510878382757560150 6536330926436874592 INFO 63 140287595009856 MainThread NAIE async_counter.py decrease 54 After decrease the current counter is: 3, future_id=1783476253.612324_2129
+2026-07-08 04:04:13.620 1510878382757560150 6536330926436874592 ERROR 63 140287595009856 MainThread NAIE text_generator.py predict 363 future_id: 1783476253.612324_2129 - predict error: Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/lib/site-packages/netrsn/core/lm_connector/generator/text_generator.py", line 356, in predict
+    async for result in streaming_generator:
+  File "/opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/lib/site-packages/netrsn/core/lm_connector/generator/text_generator.py", line 992, in __parse_response
+    raise Exception(f"{error}")
+Exception: {'message': 'EngineCore encountered an issue. See stack trace (above) for the root cause.', 'type': 'BadRequestError', 'param': None, 'code': 400}
+
+2026-07-08 04:04:13.620 1510878382757560150 6536330926436874592 INFO 63 140287595009856 MainThread NAIE async_counter.py increase 36 After increase the current counter is: 4, future_id=1783476253.612324_2129, reason: predict finish
+2026-07-08 04:04:13.620 1510878382757560150 6536330926436874592 ERROR 63 140287595009856 MainThread NAIE chat_base_future.py check 90 [1783476253.612324_2129] Internet server error.
+2026-07-08 04:04:13.620 +0200 - 63 - 140287595009856 - tornado.application - ERROR - web.py[line:1966] - log_exception - Uncaught exception POST /rest/netrsn/v1/netrsn-paddleocrsmall/chat/completions (0.0.0.0)
+HTTPServerRequest(protocol='http', host='10.68.176.120:32018', method='POST', uri='/rest/netrsn/v1/netrsn-paddleocrsmall/chat/completions', version='HTTP/1.1', remote_ip='0.0.0.0')
+Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpython3rd@27.10.3472/lib/site-packages/tornado/web.py", line 1880, in _execute
+    result = await result
+             ^^^^^^^^^^^^
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 58, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 56, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 80, in do_predict
+  File "/usr1/build/core/module/access/service/chat_service.py", line 95, in stream_response
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 165, in generate
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 91, in check
+naie.infrasdk.impl.exception.naie_exception.NaieException: infers.6009, Internet server error!
+2026-07-08 04:04:13.620 1510878382757560150 6536330926436874592 ERROR 63 140287595009856 MainThread NAIE base_handler.py write_error 67 <class 'naie.infrasdk.impl.exception.naie_exception.NaieException'> : infers.6009, Internet server error!
+Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpython3rd@27.10.3472/lib/site-packages/tornado/web.py", line 1880, in _execute
+    result = await result
+             ^^^^^^^^^^^^
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 58, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 56, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 80, in do_predict
+  File "/usr1/build/core/module/access/service/chat_service.py", line 95, in stream_response
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 165, in generate
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 91, in check
+naie.infrasdk.impl.exception.naie_exception.NaieException: infers.6009, Internet server error!
+2026-07-08 04:04:13.621 1510878382757560150 6536330926436874592 INFO 63 140287595009856 MainThread NAIE chat_completions_controller.py on_finish 49 [1783476253.612324_2129] chat finished, cost time: 0.009264945983886719
+2026-07-08 04:04:15.680 3360818722173105167 6826841131968296913 INFO 63 140287595009856 MainThread NAIE chat_service.py run 31 Start to verify request body, future_id=1783476255.6793509_3359
+2026-07-08 04:04:15.681 3360818722173105167 6826841131968296913 INFO 63 140287595009856 MainThread NAIE task_queue_local.py submit 26 Submit the task [1783476255.6793509_3359] to queue [default_queue] successful, submit time: [2026-07-08 04:04:15.681281], queue size: 1
+2026-07-08 04:04:15.681 3360818722173105167 6826841131968296913 INFO 63 140287595009856 MainThread NAIE task_queue_local.py poll 43 Poll the task [1783476255.6793509_3359] from queue [default_queue] successful, queue size: 0
+2026-07-08 04:04:15.681 3360818722173105167 6826841131968296913 INFO 63 140287595009856 MainThread NAIE async_counter.py decrease 54 After decrease the current counter is: 3, future_id=1783476255.6793509_3359
+2026-07-08 04:04:15.686 3360818722173105167 6826841131968296913 ERROR 63 140287595009856 MainThread NAIE text_generator.py predict 363 future_id: 1783476255.6793509_3359 - predict error: Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/lib/site-packages/netrsn/core/lm_connector/generator/text_generator.py", line 356, in predict
+    async for result in streaming_generator:
+  File "/opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/lib/site-packages/netrsn/core/lm_connector/generator/text_generator.py", line 992, in __parse_response
+    raise Exception(f"{error}")
+Exception: {'message': 'EngineCore encountered an issue. See stack trace (above) for the root cause.', 'type': 'BadRequestError', 'param': None, 'code': 400}
+
+2026-07-08 04:04:15.686 3360818722173105167 6826841131968296913 INFO 63 140287595009856 MainThread NAIE async_counter.py increase 36 After increase the current counter is: 4, future_id=1783476255.6793509_3359, reason: predict finish
+2026-07-08 04:04:15.686 3360818722173105167 6826841131968296913 ERROR 63 140287595009856 MainThread NAIE chat_base_future.py check 90 [1783476255.6793509_3359] Internet server error.
+2026-07-08 04:04:15.686 +0200 - 63 - 140287595009856 - tornado.application - ERROR - web.py[line:1966] - log_exception - Uncaught exception POST /rest/netrsn/v1/netrsn-paddleocrsmall/chat/completions (0.0.0.0)
+HTTPServerRequest(protocol='http', host='10.68.176.120:32018', method='POST', uri='/rest/netrsn/v1/netrsn-paddleocrsmall/chat/completions', version='HTTP/1.1', remote_ip='0.0.0.0')
+Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpython3rd@27.10.3472/lib/site-packages/tornado/web.py", line 1880, in _execute
+    result = await result
+             ^^^^^^^^^^^^
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 58, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 56, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 80, in do_predict
+  File "/usr1/build/core/module/access/service/chat_service.py", line 95, in stream_response
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 165, in generate
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 91, in check
+naie.infrasdk.impl.exception.naie_exception.NaieException: infers.6009, Internet server error!
+2026-07-08 04:04:15.687 3360818722173105167 6826841131968296913 ERROR 63 140287595009856 MainThread NAIE base_handler.py write_error 67 <class 'naie.infrasdk.impl.exception.naie_exception.NaieException'> : infers.6009, Internet server error!
+Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpython3rd@27.10.3472/lib/site-packages/tornado/web.py", line 1880, in _execute
+    result = await result
+             ^^^^^^^^^^^^
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 58, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 56, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 80, in do_predict
+  File "/usr1/build/core/module/access/service/chat_service.py", line 95, in stream_response
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 165, in generate
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 91, in check
+naie.infrasdk.impl.exception.naie_exception.NaieException: infers.6009, Internet server error!
+2026-07-08 04:04:18.895 2877265736589345317 1564724791175668446 ERROR 63 140287595009856 MainThread NAIE base_handler.py write_error 67 <class 'naie.infrasdk.impl.exception.naie_exception.NaieException'> : infers.6009, Internet server error!
+Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpython3rd@27.10.3472/lib/site-packages/tornado/web.py", line 1880, in _execute
+    result = await result
+             ^^^^^^^^^^^^
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 58, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 56, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 80, in do_predict
+  File "/usr1/build/core/module/access/service/chat_service.py", line 95, in stream_response
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 165, in generate
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 91, in check
+naie.infrasdk.impl.exception.naie_exception.NaieException: infers.6009, Internet server error!
+2026-07-08 04:04:18.896 2877265736589345317 1564724791175668446 INFO 63 140287595009856 MainThread NAIE chat_completions_controller.py on_finish 49 [1783476258.887265_8166] chat finished, cost time: 0.009173393249511719
+2026-07-08 04:04:20.055 1085401512953371438 8804121892087807070 INFO 63 140287595009856 MainThread NAIE chat_service.py run 31 Start to verify request body, future_id=1783476260.0553339_2215
+2026-07-08 04:04:20.057 1085401512953371438 8804121892087807070 INFO 63 140287595009856 MainThread NAIE task_queue_local.py submit 26 Submit the task [1783476260.0553339_2215] to queue [default_queue] successful, submit time: [2026-07-08 04:04:20.057173], queue size: 1
+2026-07-08 04:04:20.057 1085401512953371438 8804121892087807070 INFO 63 140287595009856 MainThread NAIE task_queue_local.py poll 43 Poll the task [1783476260.0553339_2215] from queue [default_queue] successful, queue size: 0
+2026-07-08 04:04:20.057 1085401512953371438 8804121892087807070 INFO 63 140287595009856 MainThread NAIE async_counter.py decrease 54 After decrease the current counter is: 3, future_id=1783476260.0553339_2215
+2026-07-08 04:04:20.062 1085401512953371438 8804121892087807070 ERROR 63 140287595009856 MainThread NAIE text_generator.py predict 363 future_id: 1783476260.0553339_2215 - predict error: Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/lib/site-packages/netrsn/core/lm_connector/generator/text_generator.py", line 356, in predict
+    async for result in streaming_generator:
+  File "/opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/lib/site-packages/netrsn/core/lm_connector/generator/text_generator.py", line 992, in __parse_response
+    raise Exception(f"{error}")
+Exception: {'message': 'EngineCore encountered an issue. See stack trace (above) for the root cause.', 'type': 'BadRequestError', 'param': None, 'code': 400}
+
+2026-07-08 04:04:20.062 1085401512953371438 8804121892087807070 INFO 63 140287595009856 MainThread NAIE async_counter.py increase 36 After increase the current counter is: 4, future_id=1783476260.0553339_2215, reason: predict finish
+2026-07-08 04:04:20.062 1085401512953371438 8804121892087807070 ERROR 63 140287595009856 MainThread NAIE chat_base_future.py check 90 [1783476260.0553339_2215] Internet server error.
+2026-07-08 04:04:20.063 +0200 - 63 - 140287595009856 - tornado.application - ERROR - web.py[line:1966] - log_exception - Uncaught exception POST /rest/netrsn/v1/netrsn-paddleocrsmall/chat/completions (0.0.0.0)
+HTTPServerRequest(protocol='http', host='10.68.176.120:32018', method='POST', uri='/rest/netrsn/v1/netrsn-paddleocrsmall/chat/completions', version='HTTP/1.1', remote_ip='0.0.0.0')
+Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpython3rd@27.10.3472/lib/site-packages/tornado/web.py", line 1880, in _execute
+    result = await result
+             ^^^^^^^^^^^^
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 58, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 56, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 80, in do_predict
+  File "/usr1/build/core/module/access/service/chat_service.py", line 95, in stream_response
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 165, in generate
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 91, in check
+naie.infrasdk.impl.exception.naie_exception.NaieException: infers.6009, Internet server error!
+2026-07-08 04:04:20.063 1085401512953371438 8804121892087807070 ERROR 63 140287595009856 MainThread NAIE base_handler.py write_error 67 <class 'naie.infrasdk.impl.exception.naie_exception.NaieException'> : infers.6009, Internet server error!
+Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpython3rd@27.10.3472/lib/site-packages/tornado/web.py", line 1880, in _execute
+    result = await result
+             ^^^^^^^^^^^^
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 58, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 56, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 80, in do_predict
+  File "/usr1/build/core/module/access/service/chat_service.py", line 95, in stream_response
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 165, in generate
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 91, in check
+naie.infrasdk.impl.exception.naie_exception.NaieException: infers.6009, Internet server error!
+2026-07-08 04:04:20.064 1085401512953371438 8804121892087807070 INFO 63 140287595009856 MainThread NAIE chat_completions_controller.py on_finish 49 [1783476260.0553339_2215] chat finished, cost time: 0.008806705474853516
+2026-07-08 04:04:27.251 2065713327860851797 4279106692671532654 INFO 63 140287595009856 MainThread NAIE chat_service.py run 31 Start to verify request body, future_id=1783476267.250925_1130
+2026-07-08 04:04:27.253 2065713327860851797 4279106692671532654 INFO 63 140287595009856 MainThread NAIE task_queue_local.py submit 26 Submit the task [1783476267.250925_1130] to queue [default_queue] successful, submit time: [2026-07-08 04:04:27.253799], queue size: 1
+2026-07-08 04:04:27.254 2065713327860851797 4279106692671532654 INFO 63 140287595009856 MainThread NAIE task_queue_local.py poll 43 Poll the task [1783476267.250925_1130] from queue [default_queue] successful, queue size: 0
+2026-07-08 04:04:27.254 2065713327860851797 4279106692671532654 INFO 63 140287595009856 MainThread NAIE async_counter.py decrease 54 After decrease the current counter is: 3, future_id=1783476267.250925_1130
+2026-07-08 04:04:27.259 2065713327860851797 4279106692671532654 ERROR 63 140287595009856 MainThread NAIE text_generator.py predict 363 future_id: 1783476267.250925_1130 - predict error: Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/lib/site-packages/netrsn/core/lm_connector/generator/text_generator.py", line 356, in predict
+    async for result in streaming_generator:
+  File "/opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/lib/site-packages/netrsn/core/lm_connector/generator/text_generator.py", line 992, in __parse_response
+    raise Exception(f"{error}")
+Exception: {'message': 'EngineCore encountered an issue. See stack trace (above) for the root cause.', 'type': 'BadRequestError', 'param': None, 'code': 400}
+
+2026-07-08 04:04:27.259 2065713327860851797 4279106692671532654 INFO 63 140287595009856 MainThread NAIE async_counter.py increase 36 After increase the current counter is: 4, future_id=1783476267.250925_1130, reason: predict finish
+2026-07-08 04:04:27.259 2065713327860851797 4279106692671532654 ERROR 63 140287595009856 MainThread NAIE chat_base_future.py check 90 [1783476267.250925_1130] Internet server error.
+2026-07-08 04:04:27.259 +0200 - 63 - 140287595009856 - tornado.application - ERROR - web.py[line:1966] - log_exception - Uncaught exception POST /rest/netrsn/v1/netrsn-paddleocrsmall/chat/completions (0.0.0.0)
+HTTPServerRequest(protocol='http', host='10.68.176.120:32018', method='POST', uri='/rest/netrsn/v1/netrsn-paddleocrsmall/chat/completions', version='HTTP/1.1', remote_ip='0.0.0.0')
+Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpython3rd@27.10.3472/lib/site-packages/tornado/web.py", line 1880, in _execute
+    result = await result
+             ^^^^^^^^^^^^
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 58, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 56, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 80, in do_predict
+  File "/usr1/build/core/module/access/service/chat_service.py", line 95, in stream_response
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 165, in generate
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 91, in check
+naie.infrasdk.impl.exception.naie_exception.NaieException: infers.6009, Internet server error!
+2026-07-08 04:04:27.259 2065713327860851797 4279106692671532654 ERROR 63 140287595009856 MainThread NAIE base_handler.py write_error 67 <class 'naie.infrasdk.impl.exception.naie_exception.NaieException'> : infers.6009, Internet server error!
+Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpython3rd@27.10.3472/lib/site-packages/tornado/web.py", line 1880, in _execute
+    result = await result
+             ^^^^^^^^^^^^
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 58, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 56, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 80, in do_predict
+  File "/usr1/build/core/module/access/service/chat_service.py", line 95, in stream_response
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 165, in generate
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 91, in check
+naie.infrasdk.impl.exception.naie_exception.NaieException: infers.6009, Internet server error!
+2026-07-08 04:04:27.260 2065713327860851797 4279106692671532654 INFO 63 140287595009856 MainThread NAIE chat_completions_controller.py on_finish 49 [1783476267.250925_1130] chat finished, cost time: 0.009632587432861328
+2026-07-08 04:04:29.804 1228015224279793324 8890306909962380664 INFO 63 140287595009856 MainThread NAIE chat_service.py run 31 Start to verify request body, future_id=1783476269.804077_8065
+2026-07-08 04:04:29.805 1228015224279793324 8890306909962380664 INFO 63 140287595009856 MainThread NAIE task_queue_local.py submit 26 Submit the task [1783476269.804077_8065] to queue [default_queue] successful, submit time: [2026-07-08 04:04:29.805343], queue size: 1
+2026-07-08 04:04:29.805 1228015224279793324 8890306909962380664 INFO 63 140287595009856 MainThread NAIE task_queue_local.py poll 43 Poll the task [1783476269.804077_8065] from queue [default_queue] successful, queue size: 0
+2026-07-08 04:04:29.805 1228015224279793324 8890306909962380664 INFO 63 140287595009856 MainThread NAIE async_counter.py decrease 54 After decrease the current counter is: 3, future_id=1783476269.804077_8065
+2026-07-08 04:04:29.810 1228015224279793324 8890306909962380664 ERROR 63 140287595009856 MainThread NAIE text_generator.py predict 363 future_id: 1783476269.804077_8065 - predict error: Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/lib/site-packages/netrsn/core/lm_connector/generator/text_generator.py", line 356, in predict
+    async for result in streaming_generator:
+  File "/opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/lib/site-packages/netrsn/core/lm_connector/generator/text_generator.py", line 992, in __parse_response
+    raise Exception(f"{error}")
+Exception: {'message': 'EngineCore encountered an issue. See stack trace (above) for the root cause.', 'type': 'BadRequestError', 'param': None, 'code': 400}
+
+2026-07-08 04:04:29.810 1228015224279793324 8890306909962380664 INFO 63 140287595009856 MainThread NAIE async_counter.py increase 36 After increase the current counter is: 4, future_id=1783476269.804077_8065, reason: predict finish
+2026-07-08 04:04:29.810 1228015224279793324 8890306909962380664 ERROR 63 140287595009856 MainThread NAIE chat_base_future.py check 90 [1783476269.804077_8065] Internet server error.
+2026-07-08 04:04:29.810 +0200 - 63 - 140287595009856 - tornado.application - ERROR - web.py[line:1966] - log_exception - Uncaught exception POST /rest/netrsn/v1/netrsn-paddleocrsmall/chat/completions (0.0.0.0)
+HTTPServerRequest(protocol='http', host='10.68.176.120:32018', method='POST', uri='/rest/netrsn/v1/netrsn-paddleocrsmall/chat/completions', version='HTTP/1.1', remote_ip='0.0.0.0')
+Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpython3rd@27.10.3472/lib/site-packages/tornado/web.py", line 1880, in _execute
+    result = await result
+             ^^^^^^^^^^^^
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 58, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 56, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 80, in do_predict
+  File "/usr1/build/core/module/access/service/chat_service.py", line 95, in stream_response
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 165, in generate
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 91, in check
+naie.infrasdk.impl.exception.naie_exception.NaieException: infers.6009, Internet server error!
+2026-07-08 04:04:29.811 1228015224279793324 8890306909962380664 ERROR 63 140287595009856 MainThread NAIE base_handler.py write_error 67 <class 'naie.infrasdk.impl.exception.naie_exception.NaieException'> : infers.6009, Internet server error!
+Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpython3rd@27.10.3472/lib/site-packages/tornado/web.py", line 1880, in _execute
+    result = await result
+             ^^^^^^^^^^^^
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 58, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 56, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 80, in do_predict
+  File "/usr1/build/core/module/access/service/chat_service.py", line 95, in stream_response
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 165, in generate
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 91, in check
+naie.infrasdk.impl.exception.naie_exception.NaieException: infers.6009, Internet server error!
+2026-07-08 04:04:29.811 1228015224279793324 8890306909962380664 INFO 63 140287595009856 MainThread NAIE chat_completions_controller.py on_finish 49 [1783476269.804077_8065] chat finished, cost time: 0.007854938507080078
+2026-07-08 04:04:33.305 1092873977373460781 2166869216437022278 INFO 63 140287595009856 MainThread NAIE chat_service.py run 31 Start to verify request body, future_id=1783476273.3052633_9814
+2026-07-08 04:04:33.307 1092873977373460781 2166869216437022278 INFO 63 140287595009856 MainThread NAIE task_queue_local.py submit 26 Submit the task [1783476273.3052633_9814] to queue [default_queue] successful, submit time: [2026-07-08 04:04:33.307144], queue size: 1
+2026-07-08 04:04:33.307 1092873977373460781 2166869216437022278 INFO 63 140287595009856 MainThread NAIE task_queue_local.py poll 43 Poll the task [1783476273.3052633_9814] from queue [default_queue] successful, queue size: 0
+2026-07-08 04:04:33.307 1092873977373460781 2166869216437022278 INFO 63 140287595009856 MainThread NAIE async_counter.py decrease 54 After decrease the current counter is: 3, future_id=1783476273.3052633_9814
+2026-07-08 04:04:33.312 1092873977373460781 2166869216437022278 ERROR 63 140287595009856 MainThread NAIE text_generator.py predict 363 future_id: 1783476273.3052633_9814 - predict error: Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/lib/site-packages/netrsn/core/lm_connector/generator/text_generator.py", line 356, in predict
+    async for result in streaming_generator:
+  File "/opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/lib/site-packages/netrsn/core/lm_connector/generator/text_generator.py", line 992, in __parse_response
+    raise Exception(f"{error}")
+Exception: {'message': 'EngineCore encountered an issue. See stack trace (above) for the root cause.', 'type': 'BadRequestError', 'param': None, 'code': 400}
+
+2026-07-08 04:04:33.312 1092873977373460781 2166869216437022278 INFO 63 140287595009856 MainThread NAIE async_counter.py increase 36 After increase the current counter is: 4, future_id=1783476273.3052633_9814, reason: predict finish
+2026-07-08 04:04:33.312 1092873977373460781 2166869216437022278 ERROR 63 140287595009856 MainThread NAIE chat_base_future.py check 90 [1783476273.3052633_9814] Internet server error.
+2026-07-08 04:04:33.312 +0200 - 63 - 140287595009856 - tornado.application - ERROR - web.py[line:1966] - log_exception - Uncaught exception POST /rest/netrsn/v1/netrsn-paddleocrsmall/chat/completions (0.0.0.0)
+HTTPServerRequest(protocol='http', host='10.68.176.120:32018', method='POST', uri='/rest/netrsn/v1/netrsn-paddleocrsmall/chat/completions', version='HTTP/1.1', remote_ip='0.0.0.0')
+Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpython3rd@27.10.3472/lib/site-packages/tornado/web.py", line 1880, in _execute
+    result = await result
+             ^^^^^^^^^^^^
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 58, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 56, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 80, in do_predict
+  File "/usr1/build/core/module/access/service/chat_service.py", line 95, in stream_response
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 165, in generate
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 91, in check
+naie.infrasdk.impl.exception.naie_exception.NaieException: infers.6009, Internet server error!
+2026-07-08 04:04:33.313 1092873977373460781 2166869216437022278 ERROR 63 140287595009856 MainThread NAIE base_handler.py write_error 67 <class 'naie.infrasdk.impl.exception.naie_exception.NaieException'> : infers.6009, Internet server error!
+Traceback (most recent call last):
+  File "/opt/pkgs/netrsnpython3rd@27.10.3472/lib/site-packages/tornado/web.py", line 1880, in _execute
+    result = await result
+             ^^^^^^^^^^^^
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 58, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 56, in post
+  File "/usr1/build/core/module/access/controller/chat_completions_controller.py", line 80, in do_predict
+  File "/usr1/build/core/module/access/service/chat_service.py", line 95, in stream_response
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 165, in generate
+  File "/usr1/build/core/module/access/service/chat_future/chat_base_future.py", line 91, in check
+naie.infrasdk.impl.exception.naie_exception.NaieException: infers.6009, Internet server error!
+2026-07-08 04:04:33.313 1092873977373460781 2166869216437022278 INFO 63 140287595009856 MainThread NAIE chat_completions_controller.py on_finish 49 [1783476273.3052633_9814] chat finished, cost time: 0.008475780487060547
+2026-07-08 04:04:36.801 1092873977373460781 2166869216437022278 INFO 63 140287595009856 MainThread NAIE netrsn_service.py check_va_health 166 killing all processes and restart the service... because of EngineCore encountered an issue. See stack trace (above) for the root cause.
+2026-07-08 04:04:36.802 +0200 - 63 - 140287595009856 - root - INFO - env_utils.py[line:60] - kill_pid - Start killing 63's all child processes
+2026-07-08 04:04:36.803 +0200 - 63 - 140287595009856 - root - INFO - env_utils.py[line:64] - kill_pid - killed child process: psutil.Process(pid=74, name='python', status='sleeping', started='16:05:01')
+2026-07-08 04:04:36.803 +0200 - 63 - 140287595009856 - root - INFO - env_utils.py[line:64] - kill_pid - killed child process: psutil.Process(pid=185, name='python', status='sleeping', started='16:05:18')
+2026-07-08 04:06:10.772 +0200 - 63 - 140523028670272 - root - WARNING - runtime.py[line:312] - get_platform_info - Can not get platform info which named [STORE.PATH]
+2026-07-08 04:06:10.774 +0200 - 63 - 140523028670272 - root - WARNING - runtime.py[line:312] - get_platform_info - Can not get platform info which named [REPOSITORY_TYPE]
+2026-07-08 04:06:10.774 +0200 - 63 - 140523028670272 - naie.infrasdk.fileclient - INFO - file_client_factory.py[line:41] - get_instance - REPOSITORY_TYPE is HFS
+2026-07-08 04:06:10.774 +0200 - 63 - 140523028670272 - naie.infrasdk.fileclient - INFO - file_client_factory.py[line:43] - get_instance - FileClient type_ is HFS
+2026-07-08 04:06:10.785   INFO 63 140523028670272 MainThread NAIE url.py <module> 6 pg service alias is netrsn-paddleocrsmall
+2026-07-08 04:06:10.862   INFO 63 140523028670272 MainThread NAIE main.py <module> 13 begin to run netrsn-paddleocrsmall service...
+2026-07-08 04:06:10.870   INFO 63 140523028670272 MainThread NAIE container_probe.py <module> 233 Liveness probe use httpGet.
+2026-07-08 04:06:10.875   INFO 63 140523028670272 MainThread NAIE container_probe.py start 228 [Liveness] Server listening on port ***
+2026-07-08 04:06:10.876 +0200 - 63 - 140522717558464 - naie.infrasdk.http - INFO - uds_http_pool.py[line:38] - get_uds_http_pool - Create http client pool successfully, pid:63, uds_path:/opt/sidecar/ir/http.sock,maxsize:5, timeout:Timeout(connect=300, read=300, total=600)
+2026-07-08 04:06:10.877 +0200 - 63 - 140523028670272 - root - INFO - tornado_container.py[line:18] - pull_up_container - pg service address is 127.0.0.1, port is 25971
+2026-07-08 04:06:10.877 +0200 - 63 - 140523028670272 - root - WARNING - runtime.py[line:312] - get_platform_info - Can not get platform info which named [APP.SERVICE]
+2026-07-08 04:06:10.877 +0200 - 63 - 140523028670272 - root - WARNING - runtime.py[line:312] - get_platform_info - Can not get platform info which named [APP.VERSION]
+2026-07-08 04:06:10.877 +0200 - 63 - 140523028670272 - root - WARNING - runtime.py[line:312] - get_platform_info - Can not get platform info which named [MODEL.SERVICE]
+2026-07-08 04:06:10.877 +0200 - 63 - 140523028670272 - root - WARNING - runtime.py[line:312] - get_platform_info - Can not get platform info which named [MODEL.VERSION]
+2026-07-08 04:06:10.878 +0200 - 63 - 140523028670272 - root - WARNING - runtime.py[line:312] - get_platform_info - Can not get platform info which named [APP.TENANT]
+2026-07-08 04:06:10.878   ERROR 63 140523028670272 MainThread NAIE public_func.py write_job_id_to_file 54 cannot open file cronjob.txt
+2026-07-08 04:06:10.879 +0200 - 63 - 140522717558464 - naie.infrasdk.http - INFO - uds_http_client.py[line:27] - get - Send Msg--> to /rest/nodeagent/v2/csi/appconf, method:GET, status:200 OK.
+2026-07-08 04:06:10.879   INFO 63 140522709165760 Thread-4 (startup) NAIE async_scheduler.py init 28 AsyncIOScheduler init params..
+2026-07-08 04:06:10.880 +0200 - 63 - 140522717558464 - root - INFO - uds_client_factory.py[line:38] - get_uds_client - Create uds client successfully, is_async:False, pid:63, uds_path:/opt/sidecar/watch/server.sock.
+2026-07-08 04:06:10.881 +0200 - 63 - 140522709165760 - apscheduler.scheduler - INFO - base.py[line:214] - start - Scheduler started
+2026-07-08 04:06:11.885 +0200 - 63 - 140523028670272 - apscheduler.scheduler - INFO - base.py[line:1090] - _real_add_job - Added job "SchedulerImpl.__check_if_active_async.<locals>.inner" to job store "default"
+2026-07-08 04:06:11.888 +0200 - 63 - 140523028670272 - root - INFO - env_utils.py[line:18] - init_cwd - os.getcwd(): /opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599
+2026-07-08 04:06:11.891 +0200 - 63 - 140522691315392 - root - INFO - global_context.py[line:42] - init_pkg_path - The param pkg path is /opt/parampkg/paddle
+2026-07-08 04:06:11.891   INFO 63 140523028670272 MainThread NAIE netrsn_service.py check_process_status 171 Start to monitor the process status...
+2026-07-08 04:06:11.892 +0200 - 63 - 140522691315392 - root - INFO - global_context.py[line:44] - init_pkg_path - The adaptation pkg path is 
+2026-07-08 04:06:11.893 +0200 - 63 - 140522691315392 - root - INFO - global_context.py[line:121] - wait_param_pkg_ready - Environment variable for PARAM_PKG_PATH is exists.
+2026-07-08 04:06:11.894 +0200 - 63 - 140522691315392 - root - INFO - model_attr.py[line:104] - set_model_dir - The base model pkg dir is /opt/tmp/param/model_pkg/1.7.1/paddle/.
+2026-07-08 04:06:11.895 +0200 - 63 - 140522691315392 - root - INFO - model_attr.py[line:135] - set_tf_model_path - Save transformer info: model_name is basic_model, mapping_path is /opt/tmp/param/model_pkg/1.7.1/paddle/model.
+2026-07-08 04:06:11.895   INFO 63 140522691315392 Thread-5 (init_func) NAIE pkg_loader.py verify_and_list_files 88 Start to check model package...
+2026-07-08 04:06:11.896   INFO 63 140522691315392 Thread-5 (init_func) NAIE config_reader.py _load_json_file 280 End to parse config file from pkg: /opt/parampkg/paddle/NAIE_V200R027C00_NetGPT-PaddleOCR-VL_H100-1P/config/basic_configs.json
+2026-07-08 04:06:11.897   INFO 63 140522691315392 Thread-5 (init_func) NAIE config_reader.py _load_config_file 159 End to parse config file from app: /opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/cache/netmo-paddleocr-vl-0p9b-v1/deploy-mode/SPU-H-1P/model_configs.json
+2026-07-08 04:06:11.897   INFO 63 140522691315392 Thread-5 (init_func) NAIE file_utils.py check_file 96 touch file: /opt/tmp/param/model_pkg/1.7.1/cache/symlink_cache.lock
+2026-07-08 04:06:11.897   INFO 63 140522691315392 Thread-5 (init_func) NAIE config_reader.py _symlink_cache 100 Start to symlink /opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/cache/netmo-paddleocr-vl-0p9b-v1/deploy-mode/SPU-H-1P to /opt/tmp/param/model_pkg/1.7.1/cache/...
+2026-07-08 04:06:11.897   INFO 63 140522691315392 Thread-5 (init_func) NAIE file_utils.py create_link 145 symbolic link exists, from /opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/cache/netmo-paddleocr-vl-0p9b-v1/deploy-mode/SPU-H-1P/cache_hf/triton_cache/8077fd426ce01126e6db9d90105129bbf6ae11d4ca9e44ae76d33e52873609fd/cuda_utils.so link to /opt/tmp/param/model_pkg/1.7.1/cache/cache_hf/triton_cache/8077fd426ce01126e6db9d90105129bbf6ae11d4ca9e44ae76d33e52873609fd/cuda_utils.so.
+2026-07-08 04:06:11.898   INFO 63 140522691315392 Thread-5 (init_func) NAIE file_utils.py create_link 145 symbolic link exists, from /opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/cache/netmo-paddleocr-vl-0p9b-v1/deploy-mode/SPU-H-1P/cache_hf/triton_cache/bf93d0914bb12d3907106952091843dbd49af06126e0779035294db57ee7e79a/__triton_launcher.so link to /opt/tmp/param/model_pkg/1.7.1/cache/cache_hf/triton_cache/bf93d0914bb12d3907106952091843dbd49af06126e0779035294db57ee7e79a/__triton_launcher.so.
+2026-07-08 04:06:11.898   INFO 63 140522691315392 Thread-5 (init_func) NAIE file_utils.py create_link 147 create symbolic link, from /opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/cache/netmo-paddleocr-vl-0p9b-v1/deploy-mode/SPU-H-1P/model_configs.json link to /opt/tmp/param/model_pkg/1.7.1/cache/model_configs.json.
+2026-07-08 04:06:11.898   INFO 63 140522691315392 Thread-5 (init_func) NAIE file_utils.py check_file 96 touch file: /opt/tmp/param/model_pkg/1.7.1/cache/cache_symlink_finish.flag
+2026-07-08 04:06:11.898   INFO 63 140522691315392 Thread-5 (init_func) NAIE config_reader.py _load_json_file 280 End to parse config file from pkg: /opt/parampkg/paddle/NAIE_V200R027C00_NetGPT-PaddleOCR-VL_H100-1P/config/basic_configs.json
+2026-07-08 04:06:11.898   INFO 63 140522691315392 Thread-5 (init_func) NAIE config_reader.py _load_config_file 159 End to parse config file from app: /opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/cache/netmo-paddleocr-vl-0p9b-v1/deploy-mode/SPU-H-1P/model_configs.json
+2026-07-08 04:06:11.899   INFO 63 140522691315392 Thread-5 (init_func) NAIE config_reader.py _symlink_cache 100 Start to symlink /opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/cache/netmo-paddleocr-vl-0p9b-v1/deploy-mode/SPU-H-1P to /opt/tmp/param/model_pkg/1.7.1/cache/...
+2026-07-08 04:06:11.899   INFO 63 140522691315392 Thread-5 (init_func) NAIE config_reader.py _symlink_cache 104 App cache symlink finished.
+2026-07-08 04:06:11.899   INFO 63 140522691315392 Thread-5 (init_func) NAIE netrsn_service.py import_site_package 118 VA site packages path is ['/opt/pkgs/netrsnpaddleocrsmallservice@27.10.3599/lib/site-packages-va']
+2026-07-08 04:06:26.589   INFO 63 140522691315392 Thread-5 (init_func) NAIE file_utils.py check_file 96 touch file: /opt/tmp/param/model_pkg_process/model_lock_1.7.1.lock
+2026-07-08 04:06:26.590   INFO 63 140522691315392 Thread-5 (init_func) NAIE pkg_loader.py prepare_basic_files 112 Acquired lock
+2026-07-08 04:06:26.590   INFO 63 140522691315392 Thread-5 (init_func) NAIE file_utils.py create_link 147 create symbolic link, from /opt/parampkg/paddle/NAIE_V200R027C00_NetGPT-PaddleOCR-VL_H100-1P_0/model/model.safetensors link to /opt/tmp/param/model_pkg/1.7.1/paddle/model/model.safetensors.
+2026-07-08 04:06:26.590   INFO 63 140522691315392 Thread-5 (init_func) NAIE file_utils.py create_link 147 create symbolic link, from /opt/parampkg/paddle/NAIE_V200R027C00_NetGPT-PaddleOCR-VL_H100-1P/config/basic_configs.json link to /opt/tmp/param/model_pkg/1.7.1/paddle/config/basic_configs.json.
+2026-07-08 04:06:26.590   INFO 63 140522691315392 Thread-5 (init_func) NAIE file_utils.py create_link 147 create symbolic link, from /opt/parampkg/paddle/NAIE_V200R027C00_NetGPT-PaddleOCR-VL_H100-1P/deploy-mode/SPU-H/model_configs.json link to /opt/tmp/param/model_pkg/1.7.1/paddle/deploy-mode/SPU-H/model_configs.json.
+2026-07-08 04:06:26.590   INFO 63 140522691315392 Thread-5 (init_func) NAIE file_utils.py create_link 147 create symbolic link, from /opt/parampkg/paddle/NAIE_V200R027C00_NetGPT-PaddleOCR-VL_H100-1P/model/image_processing_paddleocr_vl.py link to /opt/tmp/param/model_pkg/1.7.1/paddle/model/image_processing_paddleocr_vl.py.
+2026-07-08 04:06:26.590   INFO 63 140522691315392 Thread-5 (init_func) NAIE file_utils.py create_link 147 create symbolic link, from /opt/parampkg/paddle/NAIE_V200R027C00_NetGPT-PaddleOCR-VL_H100-1P/model/processing_paddleocr_vl.py link to /opt/tmp/param/model_pkg/1.7.1/paddle/model/processing_paddleocr_vl.py.
+2026-07-08 04:06:26.591   INFO 63 140522691315392 Thread-5 (init_func) NAIE file_utils.py create_link 147 create symbolic link, from /opt/parampkg/paddle/NAIE_V200R027C00_NetGPT-PaddleOCR-VL_H100-1P/model/tokenizer_config.json link to /opt/tmp/param/model_pkg/1.7.1/paddle/model/tokenizer_config.json.
+2026-07-08 04:06:26.591   INFO 63 140522691315392 Thread-5 (init_func) NAIE file_utils.py create_link 147 create symbolic link, from /opt/parampkg/paddle/NAIE_V200R027C00_NetGPT-PaddleOCR-VL_H100-1P/model/processor_config.json link to /opt/tmp/param/model_pkg/1.7.1/paddle/model/processor_config.json.
+2026-07-08 04:06:26.591   INFO 63 140522691315392 Thread-5 (init_func) NAIE file_utils.py create_link 147 create symbolic link, from /opt/parampkg/paddle/NAIE_V200R027C00_NetGPT-PaddleOCR-VL_H100-1P/model/added_tokens.json link to /opt/tmp/param/model_pkg/1.7.1/paddle/model/added_tokens.json.
+2026-07-08 04:06:26.591   INFO 63 140522691315392 Thread-5 (init_func) NAIE file_utils.py create_link 147 create symbolic link, from /opt/parampkg/paddle/NAIE_V200R027C00_NetGPT-PaddleOCR-VL_H100-1P/model/special_tokens_map.json link to /opt/tmp/param/model_pkg/1.7.1/paddle/model/special_tokens_map.json.
+2026-07-08 04:06:26.591   INFO 63 140522691315392 Thread-5 (init_func) NAIE file_utils.py create_link 147 create symbolic link, from /opt/parampkg/paddle/NAIE_V200R027C00_NetGPT-PaddleOCR-VL_H100-1P/model/config.json link to /opt/tmp/param/model_pkg/1.7.1/paddle/model/config.json.
+2026-07-08 04:06:26.591   INFO 63 140522691315392 Thread-5 (init_func) NAIE file_utils.py create_link 147 create symbolic link, from /opt/parampkg/paddle/NAIE_V200R027C00_NetGPT-PaddleOCR-VL_H100-1P/model/preprocessor_config.json link to /opt/tmp/param/model_pkg/1.7.1/paddle/model/preprocessor_config.json.
+2026-07-08 04:06:26.591   INFO 63 140522691315392 Thread-5 (init_func) NAIE file_utils.py create_link 147 create symbolic link, from /opt/parampkg/paddle/NAIE_V200R027C00_NetGPT-PaddleOCR-VL_H100-1P/model/README.md link to /opt/tmp/param/model_pkg/1.7.1/paddle/model/README.md.
+2026-07-08 04:06:26.591   INFO 63 140522691315392 Thread-5 (init_func) NAIE file_utils.py create_link 147 create symbolic link, from /opt/parampkg/paddle/NAIE_V200R027C00_NetGPT-PaddleOCR-VL_H100-1P/model/LICENSE link to /opt/tmp/param/model_pkg/1.7.1/paddle/model/LICENSE.
+2026-07-08 04:06:26.591   INFO 63 140522691315392 Thread-5 (init_func) NAIE file_utils.py create_link 147 create symbolic link, from /opt/parampkg/paddle/NAIE_V200R027C00_NetGPT-PaddleOCR-VL_H100-1P/model/tokenizer.model link to /opt/tmp/param/model_pkg/1.7.1/paddle/model/tokenizer.model.
+2026-07-08 04:06:26.591   INFO 63 140522691315392 Thread-5 (init_func) NAIE file_utils.py create_link 147 create symbolic link, from /opt/parampkg/paddle/NAIE_V200R027C00_NetGPT-PaddleOCR-VL_H100-1P/model/inference.yml link to /opt/tmp/param/model_pkg/1.7.1/paddle/model/inference.yml.
+2026-07-08 04:06:26.591   INFO 63 140522691315392 Thread-5 (init_func) NAIE file_utils.py create_link 147 create symbolic link, from /opt/parampkg/paddle/NAIE_V200R027C00_NetGPT-PaddleOCR-VL_H100-1P/model/generation_config.json link to /opt/tmp/param/model_pkg/1.7.1/paddle/model/generation_config.json.
+2026-07-08 04:06:26.592   INFO 63 140522691315392 Thread-5 (init_func) NAIE file_utils.py create_link 147 create symbolic link, from /opt/parampkg/paddle/NAIE_V200R027C00_NetGPT-PaddleOCR-VL_H100-1P/model/chat_template.jinja link to /opt/tmp/param/model_pkg/1.7.1/paddle/model/chat_template.jinja.
+2026-07-08 04:06:26.592   INFO 63 140522691315392 Thread-5 (init_func) NAIE file_utils.py create_link 147 create symbolic link, from /opt/parampkg/paddle/NAIE_V200R027C00_NetGPT-PaddleOCR-VL_H100-1P/model/configuration_paddleocr_vl.py link to /opt/tmp/param/model_pkg/1.7.1/paddle/model/configuration_paddleocr_vl.py.
+2026-07-08 04:06:26.592   INFO 63 140522691315392 Thread-5 (init_func) NAIE file_utils.py create_link 147 create symbolic link, from /opt/parampkg/paddle/NAIE_V200R027C00_NetGPT-PaddleOCR-VL_H100-1P/model/tokenizer.json link to /opt/tmp/param/model_pkg/1.7.1/paddle/model/tokenizer.json.
+2026-07-08 04:06:26.592   INFO 63 140522691315392 Thread-5 (init_func) NAIE file_utils.py create_link 147 create symbolic link, from /opt/parampkg/paddle/NAIE_V200R027C00_NetGPT-PaddleOCR-VL_H100-1P/model/modeling_paddleocr_vl.py link to /opt/tmp/param/model_pkg/1.7.1/paddle/model/modeling_paddleocr_vl.py.
+2026-07-08 04:06:26.592   INFO 63 140522691315392 Thread-5 (init_func) NAIE file_utils.py check_file 96 touch file: /opt/tmp/param/model_pkg_process/model_process_1.7.1.success
+2026-07-08 04:06:26.592   INFO 63 140522691315392 Thread-5 (init_func) NAIE decrypter.py set_success_flag 207 Set the decryption flag succeeded.
+2026-07-08 04:06:27.154   INFO 63 140522691315392 Thread-5 (init_func) NAIE decrypt_excutor.py start 155 Weights will be read from the local disk.
+2026-07-08 04:06:27.154   INFO 63 140522691315392 Thread-5 (init_func) NAIE process_queue.py _push 47 The process 63:1783476387.1546545 enter queue, queue size: 1
+2026-07-08 04:06:27.155   INFO 63 140505376421568 Thread-7 (clean_up_thread) NAIE decrypt_excutor.py clean_up_thread 46 Start the thread to check the queue....
+2026-07-08 04:06:27.155   INFO 63 140522691315392 Thread-5 (init_func) NAIE netrsn_service.py _load_model 185 Start to load model...
+2026-07-08 04:06:27.155   INFO 63 140522691315392 Thread-5 (init_func) NAIE text_generator.py load_model 136 >>>>>>> init model...
+2026-07-08 04:06:27.156   INFO 63 140522691315392 Thread-5 (init_func) NAIE text_generator.py load_model 138 enable hccl strict deterministic: False
+2026-07-08 04:06:27.156   INFO 63 140522691315392 Thread-5 (init_func) NAIE text_generator.py load_model 150 model name: netmo-paddleocr-vl-0p9b, model version: v1, model path: /opt/tmp/param/model_pkg/1.7.1/paddle/model
+2026-07-08 04:06:27.174   INFO 63 140522691315392 Thread-5 (init_func) NAIE generator_config.py __load_config 30 basic model path: /opt/tmp/param/model_pkg/1.7.1/paddle/model
+2026-07-08 04:06:27.175 +0200 - 63 - 140522691315392 - root - INFO - model_config_parser.py[line:198] - get_current_deploy_mode_path - Cache from app: /opt/tmp/param/model_pkg/1.7.1/cache.
+2026-07-08 04:06:27.176   INFO 63 140522691315392 Thread-5 (init_func) NAIE text_generator.py __add_additional_config 803 using torch compile
+2026-07-08 04:06:27.176   INFO 63 140522691315392 Thread-5 (init_func) NAIE text_generator.py __update_make_engine 651 engine args: AsyncEngineArgs(model='/opt/tmp/param/model_pkg/1.7.1/paddle/model', served_model_name=['netmo-paddleocr-vl-0p9b'], tokenizer='/opt/tmp/param/model_pkg/1.7.1/paddle/model', hf_config_path=None, runner='auto', convert='auto', skip_tokenizer_init=False, enable_prompt_embeds=False, tokenizer_mode='auto', trust_remote_code=True, allowed_local_media_path='', allowed_media_domains=None, download_dir=None, safetensors_load_strategy='lazy', load_format='auto', config_format='auto', dtype='float16', kv_cache_dtype='auto', seed=0, max_model_len=None, cudagraph_capture_sizes=None, max_cudagraph_capture_size=None, distributed_executor_backend='mp', pipeline_parallel_size=1, master_addr='127.0.0.1', master_port=29501, nnodes=1, node_rank=0, tensor_parallel_size=1, prefill_context_parallel_size=1, decode_context_parallel_size=1, dcp_kv_cache_interleave_size=1, cp_kv_cache_interleave_size=1, data_parallel_size=1, data_parallel_rank=None, data_parallel_start_rank=None, data_parallel_size_local=None, data_parallel_address=None, data_parallel_rpc_port=None, data_parallel_hybrid_lb=False, data_parallel_external_lb=False, data_parallel_backend='mp', enable_expert_parallel=False, all2all_backend=None, enable_dbo=False, dbo_decode_token_threshold=32, dbo_prefill_token_threshold=512, disable_nccl_for_dp_synchronization=False, eplb_config=EPLBConfig(window_size=1000, step_interval=3000, num_redundant_experts=0, log_balancedness=False, use_async=False, policy='default'), enable_eplb=False, expert_placement_strategy='linear', _api_process_count=1, _api_process_rank=0, max_parallel_loading_workers=None, block_size=128, enable_prefix_caching=True, prefix_caching_hash_algo='sha256', disable_sliding_window=False, disable_cascade_attn=False, swap_space=4, cpu_offload_gb=0, gpu_memory_utilization=0.3, kv_cache_memory_bytes=None, max_num_batched_tokens=None, max_num_partial_prefills=1, max_long_partial_prefills=1, long_prefill_token_threshold=0, max_num_seqs=4, max_logprobs=20, logprobs_mode='raw_logprobs', disable_log_stats=False, aggregate_engine_logging=False, revision=None, code_revision=None, hf_token=None, hf_overrides={}, tokenizer_revision=None, quantization=None, enforce_eager=False, disable_custom_all_reduce=False, limit_mm_per_prompt={}, enable_mm_embeds=False, interleave_mm_strings=False, media_io_kwargs={}, mm_processor_kwargs=None, mm_processor_cache_gb=4, mm_processor_cache_type='lru', mm_shm_cache_max_object_size_mb=128, mm_encoder_tp_mode='weights', mm_encoder_attn_backend=None, io_processor_plugin=None, skip_mm_profiling=False, video_pruning_rate=None, enable_lora=None, max_loras=1, max_lora_rank=16, default_mm_loras=None, fully_sharded_loras=False, max_cpu_loras=None, lora_dtype='auto', ray_workers_use_nsight=False, num_gpu_blocks_override=None, model_loader_extra_config={}, ignore_patterns=['original/**/*'], enable_chunked_prefill=True, disable_chunked_mm_input=False, disable_hybrid_kv_cache_manager=None, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), reasoning_parser='', reasoning_parser_plugin='', logits_processor_pattern=None, speculative_config=None, show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, scheduling_policy='fcfs', scheduler_cls=None, pooler_config=None, compilation_config={'level': None, 'mode': None, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': [], 'splitting_ops': None, 'compile_mm_encoder': False, 'compile_sizes': None, 'compile_ranges_split_points': None, 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': None, 'cudagraph_num_of_warmups': 0, 'cudagraph_capture_sizes': None, 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': None, 'pass_config': {}, 'max_cudagraph_capture_size': None, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False}, 'local_cache_dir': None}, attention_config=AttentionConfig(backend=None, flash_attn_version=None, use_prefill_decode_attention=False, flash_attn_max_num_splits_for_cuda_graph=32, use_cudnn_prefill=False, use_trtllm_ragged_deepseek_prefill=False, use_trtllm_attention=None, disable_flashinfer_prefill=False, disable_flashinfer_q_quantization=False), worker_cls='auto', worker_extension_cls='', profiler_config=ProfilerConfig(profiler=None, torch_profiler_dir='', torch_profiler_with_stack=True, torch_profiler_with_flops=False, torch_profiler_use_gzip=True, torch_profiler_dump_cuda_time_total=True, torch_profiler_record_shapes=False, torch_profiler_with_memory=False, ignore_frontend=False, delay_iterations=0, max_iterations=0), kv_transfer_config=None, kv_events_config=None, ec_transfer_config=None, generation_config='auto', enable_sleep_mode=False, override_generation_config={}, model_impl='auto', override_attention_dtype=None, attention_backend=None, calculate_kv_scales=False, mamba_cache_dtype='auto', mamba_ssm_cache_dtype='auto', mamba_block_size=None, additional_config={'torchair_graph_config': {'enabled': True, 'graph_batch_sizes': [4]}, 'ascend_scheduler_config': {'enabled': True, 'enable_chunked_prefill': False, 'chunked_prefill_enabled': False}}, use_tqdm_on_load=True, pt_load_map_location='cpu', logits_processors=None, async_scheduling=False, stream_interval=1, kv_sharing_fast_prefill=False, optimization_level=<OptimizationLevel.O2: 2>, kv_offloading_size=None, kv_offloading_backend=None, tokens_only=False, enable_log_requests=False)
+2026-07-08 04:06:30.433 +0200 - 164 - 139982735259456 - root - WARNING - runtime.py[line:312] - get_platform_info - Can not get platform info which named [STORE.PATH]
+2026-07-08 04:06:30.436 +0200 - 164 - 139982735259456 - root - WARNING - runtime.py[line:312] - get_platform_info - Can not get platform info which named [REPOSITORY_TYPE]
+2026-07-08 04:06:30.436 +0200 - 164 - 139982735259456 - naie.infrasdk.fileclient - INFO - file_client_factory.py[line:41] - get_instance - REPOSITORY_TYPE is HFS
+2026-07-08 04:06:30.436 +0200 - 164 - 139982735259456 - naie.infrasdk.fileclient - INFO - file_client_factory.py[line:43] - get_instance - FileClient type_ is HFS
+2026-07-08 04:06:30.446   INFO 164 139982735259456 MainThread NAIE url.py <module> 6 pg service alias is netrsn-paddleocrsmall
+2026-07-08 04:06:45.892 +0200 - 254 - 140119507265344 - root - WARNING - runtime.py[line:312] - get_platform_info - Can not get platform info which named [STORE.PATH]
+2026-07-08 04:06:45.894 +0200 - 254 - 140119507265344 - root - WARNING - runtime.py[line:312] - get_platform_info - Can not get platform info which named [REPOSITORY_TYPE]
+2026-07-08 04:06:45.895 +0200 - 254 - 140119507265344 - naie.infrasdk.fileclient - INFO - file_client_factory.py[line:41] - get_instance - REPOSITORY_TYPE is HFS
+2026-07-08 04:06:45.895 +0200 - 254 - 140119507265344 - naie.infrasdk.fileclient - INFO - file_client_factory.py[line:43] - get_instance - FileClient type_ is HFS
+2026-07-08 04:06:45.905   INFO 254 140119507265344 MainThread NAIE url.py <module> 6 pg service alias is netrsn-paddleocrsmall
+2026-07-08 04:07:23.215   INFO 63 140522691315392 Thread-5 (init_func) NAIE text_generator.py start_background_logging_thread 309 text_generator.py: Start logging
+2026-07-08 04:07:23.216   INFO 63 140522691315392 Thread-5 (init_func) NAIE text_generator.py load_model 172 >>>>>>> init model end...
+2026-07-08 04:07:23.216   INFO 63 140522691315392 Thread-5 (init_func) NAIE netrsn_service.py _load_model 191 Load model succeeded. Total time: 56 s
+2026-07-08 04:07:23.217 +0200 - 63 - 140522691315392 - root - INFO - model_attr.py[line:171] - clean_weights - Weights data cleaned.
+2026-07-08 04:07:23.217   INFO 63 140522691315392 Thread-5 (init_func) NAIE file_utils.py check_file 96 touch file: /opt/tmp/param/model_pkg/1.7.1/netrsnpaddleocrsmallservice-575d9c6684-2thhf/clean_weight.flag
+2026-07-08 04:07:23.549   INFO 63 140523028670272 MainThread NAIE text_generator.py warm_up 313 ---------- warmup begin -----------
+2026-07-08 04:07:23.549 +0200 - 63 - 140523028670272 - root - WARNING - runtime.py[line:312] - get_platform_info - Can not get platform info which named [APP.SERVICE]
+2026-07-08 04:07:23.550 +0200 - 63 - 140523028670272 - root - WARNING - runtime.py[line:312] - get_platform_info - Can not get platform info which named [APP.VERSION]
+2026-07-08 04:07:23.550 +0200 - 63 - 140523028670272 - root - WARNING - runtime.py[line:312] - get_platform_info - Can not get platform info which named [MODEL.SERVICE]
+2026-07-08 04:07:23.550 +0200 - 63 - 140523028670272 - root - WARNING - runtime.py[line:312] - get_platform_info - Can not get platform info which named [MODEL.VERSION]
+2026-07-08 04:07:23.550 +0200 - 63 - 140523028670272 - root - WARNING - runtime.py[line:312] - get_platform_info - Can not get platform info which named [APP.TENANT]
+2026-07-08 04:07:23.550   ERROR 63 140523028670272 MainThread NAIE public_func.py write_job_id_to_file 54 cannot open file cronjob.txt
+2026-07-08 04:07:23.551 +0200 - 63 - 140523028670272 - apscheduler.scheduler - INFO - base.py[line:1090] - _real_add_job - Added job "SchedulerImpl.__check_if_active_async.<locals>.inner" to job store "default"
+2026-07-08 04:07:23.551   INFO 63 140523028670272 MainThread NAIE task_queue_api.py init 48 The local queue named default_queue, its size is 16.
+2026-07-08 04:07:23.552   INFO 63 140523028670272 MainThread NAIE task_queue_local.py submit 26 Submit the task [warmup_1783476443.5495331] to queue [default_queue] successful, submit time: [2026-07-08 04:07:23.552296], queue size: 1
+2026-07-08 04:07:23.553   INFO 63 140523028670272 MainThread NAIE async_counter.py init_count 22 Init counter: 4
+2026-07-08 04:07:23.553   INFO 63 140523028670272 MainThread NAIE batch_scheduler_continuous.py start_scheduler_loop 69 >>> run continuous batch scheduler.
+2026-07-08 04:07:23.553   INFO 63 140523028670272 MainThread NAIE task_queue_local.py poll 43 Poll the task [warmup_1783476443.5495331] from queue [default_queue] successful, queue size: 0
+2026-07-08 04:07:23.553   INFO 63 140523028670272 MainThread NAIE async_counter.py decrease 54 After decrease the current counter is: 3, future_id=warmup_1783476443.5495331
+2026-07-08 04:07:45.061   INFO 63 140523028670272 MainThread NAIE async_counter.py increase 36 After increase the current counter is: 4, future_id=warmup_1783476443.5495331, reason: predict finish
+2026-07-08 04:07:45.061   INFO 63 140523028670272 MainThread NAIE text_generator.py __batch_warmup 884 ---------- warmup_1783476443.5495331 end, output:When your dreams come alive you're unstop<unused1> -----------
+2026-07-08 04:07:45.061   INFO 63 140523028670272 MainThread NAIE task_queue_local.py submit 26 Submit the task [warmup_1783476465.0614777] to queue [default_queue] successful, submit time: [2026-07-08 04:07:45.061723], queue size: 1
+2026-07-08 04:07:45.062   INFO 63 140523028670272 MainThread NAIE task_queue_local.py poll 43 Poll the task [warmup_1783476465.0614777] from queue [default_queue] successful, queue size: 0
+2026-07-08 04:07:45.062   INFO 63 140523028670272 MainThread NAIE async_counter.py decrease 54 After decrease the current counter is: 3, future_id=warmup_1783476465.0614777
+2026-07-08 04:07:45.127   INFO 63 140523028670272 MainThread NAIE async_counter.py increase 36 After increase the current counter is: 4, future_id=warmup_1783476465.0614777, reason: predict finish
+2026-07-08 04:07:45.127   INFO 63 140523028670272 MainThread NAIE text_generator.py __batch_warmup 884 ---------- warmup_1783476465.0614777 end, output:When your dreams come alive you're unstop<unused1> -----------
+2026-07-08 04:07:45.127   INFO 63 140523028670272 MainThread NAIE text_generator.py warm_up 320 ---------- warmup end, costs:21.578s-----------
+2026-07-08 04:07:45.128   INFO 63 140523028670272 MainThread NAIE text_generator.py start_free_tmp_thread 290 text_generator.py: Started Free_TMP
+2026-07-08 04:07:45.128   INFO 63 140523028670272 MainThread NAIE process_queue.py _pop 68 The process 63:1783476387.1546545 leave queue, queue size: 0
+2026-07-08 04:07:45.129 +0200 - 63 - 140523028670272 - root - INFO - netrsn_service.py[line:214] - _warm_up - The service is ready....
+2026-07-08 04:07:45.128   INFO 63 140503228028608 Thread-10 (free_tmp) NAIE __init__.py free_path 22 generator __init__.py: Current tmp_path: /opt/tmp/tmp
+2026-07-08 04:07:45.129 +0200 - 63 - 140523028670272 - root - INFO - uds_client_factory.py[line:38] - get_uds_client - Create uds client successfully, is_async:True, pid:63, uds_path:/opt/sidecar/watch/server.sock.
+2026-07-08 04:07:45.129   INFO 63 140503228028608 Thread-10 (free_tmp) NAIE __init__.py free_path 27 generator __init__.py: Real TMP Directory: /opt/tmp/tmp
+2026-07-08 04:07:45.130   INFO 63 140503228028608 Thread-10 (free_tmp) NAIE __init__.py free_path 57 generator __init__.py: remove tmp directory /opt/tmp/tmp
+2026-07-08 04:07:45.131   INFO 63 140503228028608 Thread-10 (free_tmp) NAIE __init__.py free_path 22 generator __init__.py: Current tmp_path: /dev/shm
+2026-07-08 04:07:45.131   INFO 63 140503228028608 Thread-10 (free_tmp) NAIE __init__.py free_path 57 generator __init__.py: remove tmp directory /dev/shm
+2026-07-08 04:07:51.966   INFO 63 140522699724480 Readiness NAIE container_probe.py start_server 65 [Readiness] Server listening on port ***
+2026-07-08 04:08:15.131   INFO 63 140523028670272 MainThread NAIE netrsn_service.py check_va_health 156 Start to monitor the engine health status...
+2026-07-08 04:08:27.156   INFO 63 140505376421568 Thread-7 (clean_up_thread) NAIE process_queue.py _check_empty 120 queue is empty, start to clean flag and decrypted file...
+2026-07-08 04:08:27.156   INFO 63 140505376421568 Thread-7 (clean_up_thread) NAIE decrypt_excutor.py clean_up 35 Start to clean decrypted files, app version is 1.7.1...
+2026-07-08 04:08:27.157   INFO 63 140505376421568 Thread-7 (clean_up_thread) NAIE file_utils.py remove 203 Removed /opt/tmp/param/model_pkg_process/model_process_1.7.1.success, exclude None.
+2026-07-08 04:08:27.157   INFO 63 140505376421568 Thread-7 (clean_up_thread) NAIE file_utils.py remove 203 Removed /opt/tmp/param/model_pkg/1.7.1, exclude ('triton_cache',).
+2026-07-08 04:08:27.157   INFO 63 140505376421568 Thread-7 (clean_up_thread) NAIE file_utils.py remove 203 Removed /opt/tmp/param/model_pkg_process/model_lock_1.7.1.lock, exclude None.
+2026-07-08 04:17:11.460 5442701159001973958 1536851006701675300 INFO 63 140523028670272 MainThread NAIE chat_service.py run 31 Start to verify request body, future_id=1783477031.4589236_1598
+2026-07-08 04:17:11.463 5442701159001973958 1536851006701675300 INFO 63 140523028670272 MainThread NAIE task_queue_local.py submit 26 Submit the task [1783477031.4589236_1598] to queue [default_queue] successful, submit time: [2026-07-08 04:17:11.463207], queue size: 1
+2026-07-08 04:17:11.463 5442701159001973958 1536851006701675300 INFO 63 140523028670272 MainThread NAIE task_queue_local.py poll 43 Poll the task [1783477031.4589236_1598] from queue [default_queue] successful, queue size: 0
+2026-07-08 04:17:11.463 5442701159001973958 1536851006701675300 INFO 63 140523028670272 MainThread NAIE async_counter.py decrease 54 After decrease the current counter is: 3, future_id=1783477031.4589236_1598
+2026-07-08 04:17:15.494 3153364261933867994 9816080633987567894 INFO 63 140523028670272 MainThread NAIE chat_service.py run 31 Start to verify request body, future_id=1783477035.4943988_6018
+2026-07-08 04:17:15.496 3153364261933867994 9816080633987567894 INFO 63 140523028670272 MainThread NAIE task_queue_local.py submit 26 Submit the task [1783477035.4943988_6018] to queue [default_queue] successful, submit time: [2026-07-08 04:17:15.496005], queue size: 1
+2026-07-08 04:17:15.496 3153364261933867994 9816080633987567894 INFO 63 140523028670272 MainThread NAIE task_queue_local.py poll 43 Poll the task [1783477035.4943988_6018] from queue [default_queue] successful, queue size: 0
+2026-07-08 04:17:15.496 3153364261933867994 9816080633987567894 INFO 63 140523028670272 MainThread NAIE async_counter.py decrease 54 After decrease the current counter is: 2, future_id=1783477035.4943988_6018
+2026-07-08 04:17:15.907 2868320036296992862 4529888731768239260 INFO 63 140523028670272 MainThread NAIE chat_service.py run 31 Start to verify request body, future_id=1783477035.9069397_9038
+2026-07-08 04:17:15.909 2868320036296992862 4529888731768239260 INFO 63 140523028670272 MainThread NAIE task_queue_local.py submit 26 Submit the task [1783477035.9069397_9038] to queue [default_queue] successful, submit time: [2026-07-08 04:17:15.909244], queue size: 1
+2026-07-08 04:17:15.909 2868320036296992862 4529888731768239260 INFO 63 140523028670272 MainThread NAIE task_queue_local.py poll 43 Poll the task [1783477035.9069397_9038] from queue [default_queue] successful, queue size: 0
+2026-07-08 04:17:15.909 2868320036296992862 4529888731768239260 INFO 63 140523028670272 MainThread NAIE async_counter.py decrease 54 After decrease the current counter is: 1, future_id=1783477035.9069397_9038
+2026-07-08 04:17:16.487 2868320036296992862 4529888731768239260 INFO 63 140523028670272 MainThread NAIE async_counter.py increase 36 After increase the current counter is: 2, future_id=1783477035.4943988_6018, reason: predict finish
+2026-07-08 04:17:16.488 2868320036296992862 4529888731768239260 INFO 63 140523028670272 MainThread NAIE chat_completions_controller.py on_finish 49 [1783477035.4943988_6018] chat finished, cost time: 0.9939165115356445
+2026-07-08 04:17:16.489 +0200 - 63 - 140523028670272 - naie.infrasdk.http - INFO - async_http_client.py[line:55] - get_pool - Create async http client pool successfully, pid:63, tid:140523028670272, timeout:ClientTimeout(total=600, connect=300, sock_read=300, sock_connect=None, ceil_threshold=5).
+2026-07-08 04:17:17.099 1862507392125850179 7919327268056106982 INFO 63 140523028670272 MainThread NAIE chat_service.py run 31 Start to verify request body, future_id=1783477037.0988922_1394
+2026-07-08 04:17:17.101 1862507392125850179 7919327268056106982 INFO 63 140523028670272 MainThread NAIE task_queue_local.py submit 26 Submit the task [1783477037.0988922_1394] to queue [default_queue] successful, submit time: [2026-07-08 04:17:17.101531], queue size: 1
+2026-07-08 04:17:17.101 1862507392125850179 7919327268056106982 INFO 63 140523028670272 MainThread NAIE task_queue_local.py poll 43 Poll the task [1783477037.0988922_1394] from queue [default_queue] successful, queue size: 0
+2026-07-08 04:17:17.102 1862507392125850179 7919327268056106982 INFO 63 140523028670272 MainThread NAIE async_counter.py decrease 54 After decrease the current counter is: 1, future_id=1783477037.0988922_1394
+2026-07-08 04:17:18.586 5145170103712131235 9741013289636141978 INFO 63 140523028670272 MainThread NAIE chat_service.py run 31 Start to verify request body, future_id=1783477038.585695_8821
+2026-07-08 04:17:18.589 5145170103712131235 9741013289636141978 INFO 63 140523028670272 MainThread NAIE task_queue_local.py submit 26 Submit the task [1783477038.585695_8821] to queue [default_queue] successful, submit time: [2026-07-08 04:17:18.589415], queue size: 1
+2026-07-08 04:17:18.589 5145170103712131235 9741013289636141978 INFO 63 140523028670272 MainThread NAIE task_queue_local.py poll 43 Poll the task [1783477038.585695_8821] from queue [default_queue] successful, queue size: 0
+2026-07-08 04:17:18.589 5145170103712131235 9741013289636141978 INFO 63 140523028670272 MainThread NAIE async_counter.py decrease 54 After decrease the current counter is: 0, future_id=1783477038.585695_8821
+2026-07-08 04:17:18.971 5145170103712131235 9741013289636141978 INFO 63 140523028670272 MainThread NAIE async_counter.py increase 36 After increase the current counter is: 1, future_id=1783477037.0988922_1394, reason: predict finish
+2026-07-08 04:17:18.972 5145170103712131235 9741013289636141978 INFO 63 140523028670272 MainThread NAIE chat_completions_controller.py on_finish 49 [1783477037.0988922_1394] chat finished, cost time: 1.8733656406402588
+2026-07-08 04:17:19.161 3173128335614209629 8251807336983664625 INFO 63 140523028670272 MainThread NAIE chat_service.py run 31 Start to verify request body, future_id=1783477039.1604347_8397
+2026-07-08 04:17:19.162 3173128335614209629 8251807336983664625 INFO 63 140523028670272 MainThread NAIE task_queue_local.py submit 26 Submit the task [1783477039.1604347_8397] to queue [default_queue] successful, submit time: [2026-07-08 04:17:19.162432], queue size: 1
+2026-07-08 04:17:19.162 3173128335614209629 8251807336983664625 INFO 63 140523028670272 MainThread NAIE task_queue_local.py poll 43 Poll the task [1783477039.1604347_8397] from queue [default_queue] successful, queue size: 0
+2026-07-08 04:17:19.162 3173128335614209629 8251807336983664625 INFO 63 140523028670272 MainThread NAIE async_counter.py decrease 54 After decrease the current counter is: 0, future_id=1783477039.1604347_8397
+2026-07-08 04:17:20.738 3173128335614209629 8251807336983664625 INFO 63 140523028670272 MainThread NAIE async_counter.py increase 36 After increase the current counter is: 1, future_id=1783477039.1604347_8397, reason: predict finish
+2026-07-08 04:17:20.738 3173128335614209629 8251807336983664625 INFO 63 140523028670272 MainThread NAIE chat_completions_controller.py on_finish 49 [1783477039.1604347_8397] chat finished, cost time: 1.5783629417419434
+2026-07-08 04:17:20.793 1394331671597409974 3393232692736305362 INFO 63 140523028670272 MainThread NAIE chat_service.py run 31 Start to verify request body, future_id=1783477040.7927506_4934
+2026-07-08 04:17:20.795 1394331671597409974 3393232692736305362 INFO 63 140523028670272 MainThread NAIE task_queue_local.py submit 26 Submit the task [1783477040.7927506_4934] to queue [default_queue] successful, submit time: [2026-07-08 04:17:20.794984], queue size: 1
+2026-07-08 04:17:20.795 1394331671597409974 3393232692736305362 INFO 63 140523028670272 MainThread NAIE task_queue_local.py poll 43 Poll the task [1783477040.7927506_4934] from queue [default_queue] successful, queue size: 0
+2026-07-08 04:17:20.795 1394331671597409974 3393232692736305362 INFO 63 140523028670272 MainThread NAIE async_counter.py decrease 54 After decrease the current counter is: 0, future_id=1783477040.7927506_4934
+2026-07-08 04:17:22.453 1394331671597409974 3393232692736305362 INFO 63 140523028670272 MainThread NAIE async_counter.py increase 36 After increase the current counter is: 1, future_id=1783477038.585695_8821, reason: predict finish
+2026-07-08 04:17:22.454 1394331671597409974 3393232692736305362 INFO 63 140523028670272 MainThread NAIE chat_completions_controller.py on_finish 49 [1783477038.585695_8821] chat finished, cost time: 3.868516445159912
+2026-07-08 04:17:23.416 1394331671597409974 3393232692736305362 INFO 63 140523028670272 MainThread NAIE async_counter.py increase 36 After increase the current counter is: 2, future_id=1783477040.7927506_4934, reason: predict finish
+2026-07-08 04:17:23.417 1394331671597409974 3393232692736305362 INFO 63 140523028670272 MainThread NAIE chat_completions_controller.py on_finish 49 [1783477040.7927506_4934] chat finished, cost time: 2.62440824508667
+2026-07-08 04:17:23.496 9033999579822936127 3998322207016159338 INFO 63 140523028670272 MainThread NAIE chat_service.py run 31 Start to verify request body, future_id=1783477043.4952435_3384
+2026-07-08 04:17:23.498 9033999579822936127 3998322207016159338 INFO 63 140523028670272 MainThread NAIE task_queue_local.py submit 26 Submit the task [1783477043.4952435_3384] to queue [default_queue] successful, submit time: [2026-07-08 04:17:23.498242], queue size: 1
+2026-07-08 04:17:23.498 9033999579822936127 3998322207016159338 INFO 63 140523028670272 MainThread NAIE task_queue_local.py poll 43 Poll the task [1783477043.4952435_3384] from queue [default_queue] successful, queue size: 0
+2026-07-08 04:17:23.498 9033999579822936127 3998322207016159338 INFO 63 140523028670272 MainThread NAIE async_counter.py decrease 54 After decrease the current counter is: 1, future_id=1783477043.4952435_3384
+2026-07-08 04:17:26.245 1474297310320658123 8008662845267792855 INFO 63 140523028670272 MainThread NAIE chat_service.py run 31 Start to verify request body, future_id=1783477046.2452052_4000
+2026-07-08 04:17:26.246 1474297310320658123 8008662845267792855 INFO 63 140523028670272 MainThread NAIE task_queue_local.py submit 26 Submit the task [1783477046.2452052_4000] to queue [default_queue] successful, submit time: [2026-07-08 04:17:26.246530], queue size: 1
+2026-07-08 04:17:26.246 1474297310320658123 8008662845267792855 INFO 63 140523028670272 MainThread NAIE task_queue_local.py poll 43 Poll the task [1783477046.2452052_4000] from queue [default_queue] successful, queue size: 0
+2026-07-08 04:17:26.246 1474297310320658123 8008662845267792855 INFO 63 140523028670272 MainThread NAIE async_counter.py decrease 54 After decrease the current counter is: 0, future_id=1783477046.2452052_4000
+2026-07-08 04:17:27.791 1474297310320658123 8008662845267792855 INFO 63 140523028670272 MainThread NAIE async_counter.py increase 36 After increase the current counter is: 1, future_id=1783477046.2452052_4000, reason: predict finish
+2026-07-08 04:17:27.792 1474297310320658123 8008662845267792855 INFO 63 140523028670272 MainThread NAIE chat_completions_controller.py on_finish 49 [1783477046.2452052_4000] chat finished, cost time: 1.546980619430542
