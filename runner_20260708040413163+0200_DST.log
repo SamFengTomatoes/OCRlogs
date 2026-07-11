@@ -1,0 +1,5 @@
+2026-07-08 03:06:35.135   INFO 63 140268039829184 Thread-10 (free_tmp) NAIE __init__.py free_path 22 generator __init__.py: Current tmp_path: /opt/tmp/tmp
+2026-07-08 03:06:35.135   INFO 63 140268039829184 Thread-10 (free_tmp) NAIE __init__.py free_path 27 generator __init__.py: Real TMP Directory: /opt/tmp/tmp
+2026-07-08 03:06:35.136   INFO 63 140268039829184 Thread-10 (free_tmp) NAIE __init__.py free_path 57 generator __init__.py: remove tmp directory /opt/tmp/tmp
+2026-07-08 03:06:35.136   INFO 63 140268039829184 Thread-10 (free_tmp) NAIE __init__.py free_path 22 generator __init__.py: Current tmp_path: /dev/shm
+2026-07-08 03:06:35.136   INFO 63 140268039829184 Thread-10 (free_tmp) NAIE __init__.py free_path 57 generator __init__.py: remove tmp directory /dev/shm
