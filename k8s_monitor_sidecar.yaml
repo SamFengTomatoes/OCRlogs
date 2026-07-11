@@ -1,0 +1,124 @@
+# ──────────────────────────────────────────────────────────────────────────
+# K8s 部署：以 Sidecar 方式部署进程监控
+#
+# 说明:
+#   此 YAML 在目标 Pod 中添加一个 sidecar 容器，共享 PID namespace，
+#   从而监控主容器中的 vLLM 进程。
+#
+# 使用方法:
+#   1. 将 <YOUR-IMAGE> 替换为包含 Python3 的镜像
+#   2. 将 process_kill_monitor.py 挂载到 sidecar 容器
+#   3. 主容器需要设置 shareProcessNamespace: true
+#
+# 注意:
+#   - shareProcessNamespace: true 是必须的，使 sidecar 能看到主容器的进程
+#   - securityContext.privileged: true 用于读取 /dev/kmsg（可选）
+#   - 如果不能 privileged，cgroup OOM 监控仍然可用
+# ──────────────────────────────────────────────────────────────────────────
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vllm-ocr-with-monitor
+  labels:
+    app: vllm-ocr
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vllm-ocr
+  template:
+    metadata:
+      labels:
+        app: vllm-ocr
+    spec:
+      # ── 关键：共享 PID namespace ──
+      shareProcessNamespace: true
+
+      volumes:
+        - name: monitor-script
+          configMap:
+            name: process-monitor-script
+        - name: monitor-logs
+          emptyDir: {}
+
+      containers:
+        # ── 主容器：vLLM OCR 服务 ──
+        - name: vllm
+          image: <YOUR-VLLM-IMAGE>
+          command: ["vllm", "serve", "/model/path", "--port", "8000"]
+          resources:
+            requests:
+              memory: "32Gi"
+              nvidia.com/gpu: 1
+            limits:
+              memory: "64Gi"
+              nvidia.com/gpu: 1
+          volumeMounts:
+            - name: monitor-logs
+              mountPath: /opt/parampkg/proc_monitor
+
+        # ── Sidecar 容器：进程监控 ──
+        - name: process-monitor
+          image: <YOUR-MONITOR-IMAGE>  # 包含 python3 和 psutil 的轻量镜像
+          command:
+            - python3
+            - /opt/monitor/process_kill_monitor.py
+            - --pattern
+            - "EngineCore|Worker|vllm"
+            - --interval
+            - "0.5"
+            - --dump-proc
+            - --log-dir
+            - /opt/parampkg/proc_monitor
+          securityContext:
+            # privileged 模式可读取 /dev/kmsg
+            # 如果集群策略不允许，改为 false，cgroup OOM 监控仍可用
+            privileged: true
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
+          volumeMounts:
+            - name: monitor-script
+              mountPath: /opt/monitor
+              readOnly: true
+            - name: monitor-logs
+              mountPath: /opt/parampkg/proc_monitor
+
+---
+# ConfigMap 包含监控脚本
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: process-monitor-script
+data:
+  process_kill_monitor.py: |
+    # 将 process_kill_monitor.py 的内容粘贴到这里
+    # 或使用 kubectl create configmap 从文件创建:
+    # kubectl create configmap process-monitor-script \
+    #   --from-file=process_kill_monitor.py=process_kill_monitor.py
+
+# ──────────────────────────────────────────────────────────────────────────
+# 部署步骤:
+#
+# 1. 创建 ConfigMap
+#    kubectl create configmap process-monitor-script \
+#      --from-file=process_kill_monitor.py=process_kill_monitor.py
+#
+# 2. 部署
+#    kubectl apply -f k8s_monitor_sidecar.yaml
+#
+# 3. 查看监控日志
+#    kubectl logs <pod-name> -c process-monitor
+#
+# 4. 查看监控快照
+#    kubectl exec <pod-name> -c process-monitor -- ls /opt/parampkg/proc_monitor/snapshots/
+#
+# 5. 当进程退出后查看分析结果
+#    kubectl exec <pod-name> -c process-monitor -- cat /opt/parampkg/proc_monitor/monitor.log
+#    kubectl exec <pod-name> -c process-monitor -- cat /opt/parampkg/proc_monitor/snapshots/*exit*
+# ──────────────────────────────────────────────────────────────────────────
